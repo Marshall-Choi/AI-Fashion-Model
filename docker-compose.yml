@@ -1,0 +1,17 @@
+version: "3.8"
+
+services:
+  comfyui:
+    image: pionai/runpod-worker-comfy-m2m:1112
+    container_name: comfyui-worker
+    runtime: nvidia 
+    environment:
+      - NVIDIA_VISIBLE_DEVICES=all
+      - SERVE_API_LOCALLY=true
+      - NVIDIA_DRIVER_CAPABILITIES=compute,utility
+    ports:
+      - "54310:8000"
+      - "54311:8188"
+    volumes:
+      - ./data/comfyui/output:/comfyui/output
+      - ./data/runpod-volume:/runpod-volume

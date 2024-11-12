@@ -1,0 +1,142 @@
+{
+  "109": {
+    "inputs": {
+      "image_from": [
+        "121",
+        0
+      ],
+      "image_to": [
+        "113",
+        0
+      ],
+      "mask": [
+        "119",
+        0
+      ]
+    },
+    "class_type": "ImageCompositeFromMaskBatch+",
+    "_meta": {
+      "title": "🔧 Image Composite From Mask Batch"
+    }
+  },
+  "111": {
+    "inputs": {
+      "width": 271,
+      "height": 421,
+      "red": 255,
+      "green": 255,
+      "blue": 255
+    },
+    "class_type": "Image Blank",
+    "_meta": {
+      "title": "Image Blank"
+    }
+  },
+  "113": {
+    "inputs": {
+      "width": 512,
+      "height": 512,
+      "upscale_method": "nearest-exact",
+      "keep_proportion": false,
+      "divisible_by": 2,
+      "width_input": [
+        "114",
+        4
+      ],
+      "height_input": [
+        "114",
+        5
+      ],
+      "crop": "disabled",
+      "image": [
+        "111",
+        0
+      ]
+    },
+    "class_type": "ImageResizeKJ",
+    "_meta": {
+      "title": "Resize Image"
+    }
+  },
+  "114": {
+    "inputs": {
+      "image": [
+        "121",
+        0
+      ]
+    },
+    "class_type": "Image Size to Number",
+    "_meta": {
+      "title": "Image Size to Number"
+    }
+  },
+  "119": {
+    "inputs": {
+      "mask": [
+        "122",
+        1
+      ]
+    },
+    "class_type": "InvertMask",
+    "_meta": {
+      "title": "InvertMask"
+    }
+  },
+  "120": {
+    "inputs": {
+      "filename_prefix": "whiteBG",
+      "images": [
+        "109",
+        0
+      ]
+    },
+    "class_type": "SaveImage",
+    "_meta": {
+      "title": "Save Image"
+    }
+  },
+  "121": {
+    "inputs": {
+      "base64_data": "",
+      "image_output": "Hide",
+      "save_prefix": "ComfyUI"
+    },
+    "class_type": "easy loadImageBase64",
+    "_meta": {
+      "title": "Load Image (Base64)"
+    }
+  },
+  "122": {
+    "inputs": {
+      "detail_method": "VITMatte",
+      "detail_erode": 4,
+      "detail_dilate": 2,
+      "black_point": 0.01,
+      "white_point": 0.99,
+      "process_detail": false,
+      "device": "cuda",
+      "max_megapixels": 2,
+      "image": [
+        "121",
+        0
+      ],
+      "birefnet_model": [
+        "123",
+        0
+      ]
+    },
+    "class_type": "LayerMask: BiRefNetUltraV2",
+    "_meta": {
+      "title": "LayerMask: BiRefNet Ultra V2"
+    }
+  },
+  "123": {
+    "inputs": {
+      "model": "BiRefNet-general-epoch_244.pth"
+    },
+    "class_type": "LayerMask: LoadBiRefNetModel",
+    "_meta": {
+      "title": "LayerMask: Load BiRefNet Model"
+    }
+  }
+}

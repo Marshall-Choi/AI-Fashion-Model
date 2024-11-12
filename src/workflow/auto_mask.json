@@ -1,0 +1,117 @@
+{
+  "73": {
+    "inputs": {
+      "base64_data": "",
+      "image_output": "Hide",
+      "save_prefix": "ComfyUI"
+    },
+    "class_type": "easy loadImageBase64",
+    "_meta": {
+      "title": "Load Image (Base64)"
+    }
+  },
+  "74": {
+    "inputs": {
+      "filename_prefix": "auto_mask",
+      "images": [
+        "75",
+        0
+      ]
+    },
+    "class_type": "SaveImage",
+    "_meta": {
+      "title": "Save Image"
+    }
+  },
+  "75": {
+    "inputs": {
+      "mask": [
+        "78",
+        1
+      ]
+    },
+    "class_type": "MaskToImage",
+    "_meta": {
+      "title": "Convert Mask to Image"
+    }
+  },
+  "77": {
+    "inputs": {
+      "model": "segformer_b3_fashion",
+      "shirt": true,
+      "top": true,
+      "sweater": true,
+      "cardigan": true,
+      "jacket": true,
+      "vest": true,
+      "pants": true,
+      "shorts": true,
+      "skirt": true,
+      "coat": true,
+      "dress": true,
+      "jumpsuit": true,
+      "cape": true,
+      "glasses": true,
+      "hat": true,
+      "hairaccessory": true,
+      "tie": true,
+      "glove": true,
+      "watch": true,
+      "belt": true,
+      "legwarmer": true,
+      "tights": true,
+      "sock": true,
+      "shoe": true,
+      "bagwallet": true,
+      "scarf": true,
+      "umbrella": true,
+      "hood": true,
+      "collar": true,
+      "lapel": true,
+      "epaulette": true,
+      "sleeve": true,
+      "pocket": true,
+      "neckline": true,
+      "buckle": true,
+      "zipper": true,
+      "applique": true,
+      "bead": true,
+      "bow": true,
+      "flower": true,
+      "fringe": true,
+      "ribbon": true,
+      "rivet": true,
+      "ruffle": true,
+      "sequin": true,
+      "tassel": true
+    },
+    "class_type": "LayerMask: SegformerFashionPipelineLoader",
+    "_meta": {
+      "title": "LayerMask: Segformer Fashion Pipeline"
+    }
+  },
+  "78": {
+    "inputs": {
+      "detail_method": "VITMatte",
+      "detail_erode": 8,
+      "detail_dilate": 6,
+      "black_point": 0.01,
+      "white_point": 0.99,
+      "process_detail": true,
+      "device": "cuda",
+      "max_megapixels": 2,
+      "image": [
+        "73",
+        0
+      ],
+      "segformer_pipeline": [
+        "77",
+        0
+      ]
+    },
+    "class_type": "LayerMask: SegformerUltraV2",
+    "_meta": {
+      "title": "LayerMask: Segformer Ultra V2"
+    }
+  }
+}

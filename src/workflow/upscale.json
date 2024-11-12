@@ -1,0 +1,93 @@
+{
+  "1": {
+    "inputs": {
+      "base64_data": "",
+      "image_output": "Hide",
+      "save_prefix": "ComfyUI"
+    },
+    "class_type": "easy loadImageBase64",
+    "_meta": {
+      "title": "Load Image (Base64)"
+    }
+  },
+  "2": {
+    "inputs": {
+      "upscale_model": "4x_NMKD-Siax_200k.pth",
+      "mode": "rescale",
+      "rescale_factor": 2,
+      "resize_width": 1024,
+      "resampling_method": "lanczos",
+      "supersample": "true",
+      "rounding_modulus": 8,
+      "image": [
+        "1",
+        0
+      ]
+    },
+    "class_type": "CR Upscale Image",
+    "_meta": {
+      "title": "🔍 CR Upscale Image"
+    }
+  },
+  "3": {
+    "inputs": {
+      "filename_prefix": "upscale",
+      "images": [
+        "5",
+        0
+      ]
+    },
+    "class_type": "SaveImage",
+    "_meta": {
+      "title": "Save Image"
+    }
+  },
+  "5": {
+    "inputs": {
+      "upscale_method": "lanczos",
+      "width": 1024,
+      "height": [
+        "7",
+        0
+      ],
+      "crop": "center",
+      "image": [
+        "2",
+        0
+      ]
+    },
+    "class_type": "ImageScale",
+    "_meta": {
+      "title": "Upscale Image"
+    }
+  },
+  "6": {
+    "inputs": {
+      "image": [
+        "2",
+        0
+      ]
+    },
+    "class_type": "LayerUtility: GetImageSize",
+    "_meta": {
+      "title": "LayerUtility: GetImageSize"
+    }
+  },
+  "7": {
+    "inputs": {
+      "expression": "b/(a/1024) - b/(a/1024)%8\n\n",
+      "a": [
+        "6",
+        0
+      ],
+      "b": [
+        "6",
+        1
+      ]
+    },
+    "class_type": "MathExpression|pysssss",
+    "_meta": {
+      "title": "Math Expression 🐍"
+    }
+  }
+}

@@ -1,0 +1,2162 @@
+{
+  "412": {
+    "inputs": {
+      "base64_data": "iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAQAAADZc7J/AAAAH0lEQVR42mNkoBAwjhowasCoAaMGjBowasCoAcPNAACOMAAhOO/A7wAAAABJRU5ErkJggg==",
+      "image_output": "Hide",
+      "save_prefix": "ComfyUI"
+    },
+    "class_type": "easy loadImageBase64",
+    "_meta": {
+      "title": "Load Image (Base64)"
+    }
+  },
+  "413": {
+    "inputs": {
+      "filename_prefix": "Image",
+      "images": [
+        "414",
+        0
+      ]
+    },
+    "class_type": "SaveImage",
+    "_meta": {
+      "title": "Save Image"
+    }
+  },
+  "414": {
+    "inputs": {
+      "index": [
+        "420",
+        0
+      ],
+      "value0": [
+        "416",
+        0
+      ],
+      "value1": [
+        "434",
+        0
+      ],
+      "value2": [
+        "444",
+        0
+      ],
+      "value3": [
+        "473",
+        0
+      ],
+      "value4": [
+        "609",
+        0
+      ]
+    },
+    "class_type": "InversionDemoLazyIndexSwitch",
+    "_meta": {
+      "title": "output_select"
+    }
+  },
+  "415": {
+    "inputs": {
+      "upscale_model": "4x_NMKD-Siax_200k.pth",
+      "mode": "rescale",
+      "rescale_factor": [
+        "432",
+        1
+      ],
+      "resize_width": 1024,
+      "resampling_method": "lanczos",
+      "supersample": "true",
+      "rounding_modulus": 8,
+      "image": [
+        "419",
+        0
+      ]
+    },
+    "class_type": "CR Upscale Image",
+    "_meta": {
+      "title": "🔍 CR Upscale Image"
+    }
+  },
+  "416": {
+    "inputs": {
+      "upscale_method": "lanczos",
+      "width": 1024,
+      "height": [
+        "433",
+        0
+      ],
+      "crop": "center",
+      "image": [
+        "415",
+        0
+      ]
+    },
+    "class_type": "ImageScale",
+    "_meta": {
+      "title": "Upscale Image"
+    }
+  },
+  "417": {
+    "inputs": {
+      "image": [
+        "415",
+        0
+      ]
+    },
+    "class_type": "LayerUtility: GetImageSize",
+    "_meta": {
+      "title": "LayerUtility: GetImageSize"
+    }
+  },
+  "418": {
+    "inputs": {
+      "image": [
+        "419",
+        0
+      ]
+    },
+    "class_type": "LayerUtility: GetImageSize",
+    "_meta": {
+      "title": "LayerUtility: GetImageSize"
+    }
+  },
+  "419": {
+    "inputs": {
+      "switch": [
+        "421",
+        0
+      ],
+      "on_false": [
+        "422",
+        0
+      ],
+      "on_true": [
+        "412",
+        0
+      ]
+    },
+    "class_type": "InversionDemoLazySwitch",
+    "_meta": {
+      "title": "Lazy Switch"
+    }
+  },
+  "420": {
+    "inputs": {
+      "value": 4
+    },
+    "class_type": "easy int",
+    "_meta": {
+      "title": "Selected_Workflow"
+    }
+  },
+  "421": {
+    "inputs": {
+      "comparison": "a == b",
+      "a": [
+        "420",
+        0
+      ],
+      "b": [
+        "423",
+        0
+      ]
+    },
+    "class_type": "easy compare",
+    "_meta": {
+      "title": "Compare"
+    }
+  },
+  "422": {
+    "inputs": {
+      "base64_data": "iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAQAAADZc7J/AAAAH0lEQVR42mNkoBAwjhowasCoAaMGjBowasCoAcPNAACOMAAhOO/A7wAAAABJRU5ErkJggg==",
+      "image_output": "Hide",
+      "save_prefix": "ComfyUI"
+    },
+    "class_type": "easy loadImageBase64",
+    "_meta": {
+      "title": "Empty"
+    }
+  },
+  "423": {
+    "inputs": {
+      "value": 0
+    },
+    "class_type": "easy int",
+    "_meta": {
+      "title": "Upscale"
+    }
+  },
+  "424": {
+    "inputs": {
+      "value": 1
+    },
+    "class_type": "easy int",
+    "_meta": {
+      "title": "WhiteBG"
+    }
+  },
+  "425": {
+    "inputs": {
+      "value": 2
+    },
+    "class_type": "easy int",
+    "_meta": {
+      "title": "Segmentation"
+    }
+  },
+  "426": {
+    "inputs": {
+      "value": 4
+    },
+    "class_type": "easy int",
+    "_meta": {
+      "title": "ChangeBG"
+    }
+  },
+  "427": {
+    "inputs": {
+      "comparison": "a == b",
+      "a": [
+        "420",
+        0
+      ],
+      "b": [
+        "424",
+        0
+      ]
+    },
+    "class_type": "easy compare",
+    "_meta": {
+      "title": "Compare"
+    }
+  },
+  "428": {
+    "inputs": {
+      "comparison": "a == b",
+      "a": [
+        "420",
+        0
+      ],
+      "b": [
+        "425",
+        0
+      ]
+    },
+    "class_type": "easy compare",
+    "_meta": {
+      "title": "Compare"
+    }
+  },
+  "429": {
+    "inputs": {
+      "comparison": "a == b",
+      "a": [
+        "420",
+        0
+      ],
+      "b": [
+        "426",
+        0
+      ]
+    },
+    "class_type": "easy compare",
+    "_meta": {
+      "title": "Compare"
+    }
+  },
+  "430": {
+    "inputs": {
+      "switch": [
+        "427",
+        0
+      ],
+      "on_false": [
+        "422",
+        0
+      ],
+      "on_true": [
+        "412",
+        0
+      ]
+    },
+    "class_type": "InversionDemoLazySwitch",
+    "_meta": {
+      "title": "Lazy Switch"
+    }
+  },
+  "431": {
+    "inputs": {
+      "switch": [
+        "428",
+        0
+      ],
+      "on_false": [
+        "422",
+        0
+      ],
+      "on_true": [
+        "412",
+        0
+      ]
+    },
+    "class_type": "InversionDemoLazySwitch",
+    "_meta": {
+      "title": "Lazy Switch"
+    }
+  },
+  "432": {
+    "inputs": {
+      "value": "1024/a",
+      "a": [
+        "418",
+        0
+      ]
+    },
+    "class_type": "SimpleMath+",
+    "_meta": {
+      "title": "🔧 Simple Math"
+    }
+  },
+  "433": {
+    "inputs": {
+      "value": "b/(a/1024) - b/(a/1024)%8",
+      "a": [
+        "417",
+        0
+      ],
+      "b": [
+        "417",
+        1
+      ]
+    },
+    "class_type": "SimpleMath+",
+    "_meta": {
+      "title": "🔧 Simple Math"
+    }
+  },
+  "434": {
+    "inputs": {
+      "image_from": [
+        "430",
+        0
+      ],
+      "image_to": [
+        "435",
+        0
+      ],
+      "mask": [
+        "439",
+        0
+      ]
+    },
+    "class_type": "ImageCompositeFromMaskBatch+",
+    "_meta": {
+      "title": "🔧 Image Composite From Mask Batch"
+    }
+  },
+  "435": {
+    "inputs": {
+      "width": [
+        "437",
+        4
+      ],
+      "height": [
+        "437",
+        5
+      ],
+      "red": 255,
+      "green": 255,
+      "blue": 255
+    },
+    "class_type": "Image Blank",
+    "_meta": {
+      "title": "Image Blank"
+    }
+  },
+  "437": {
+    "inputs": {
+      "image": [
+        "430",
+        0
+      ]
+    },
+    "class_type": "Image Size to Number",
+    "_meta": {
+      "title": "Image Size to Number"
+    }
+  },
+  "439": {
+    "inputs": {
+      "mask": [
+        "440",
+        1
+      ]
+    },
+    "class_type": "InvertMask",
+    "_meta": {
+      "title": "InvertMask"
+    }
+  },
+  "440": {
+    "inputs": {
+      "detail_method": "GuidedFilter",
+      "detail_erode": 4,
+      "detail_dilate": 2,
+      "black_point": 0.01,
+      "white_point": 0.99,
+      "process_detail": false,
+      "device": "cuda",
+      "max_megapixels": 2,
+      "image": [
+        "430",
+        0
+      ],
+      "birefnet_model": [
+        "441",
+        0
+      ]
+    },
+    "class_type": "LayerMask: BiRefNetUltraV2",
+    "_meta": {
+      "title": "LayerMask: BiRefNet Ultra V2"
+    }
+  },
+  "441": {
+    "inputs": {
+      "model": "BiRefNet-general-epoch_244.pth"
+    },
+    "class_type": "LayerMask: LoadBiRefNetModel",
+    "_meta": {
+      "title": "LayerMask: Load BiRefNet Model"
+    }
+  },
+  "442": {
+    "inputs": {
+      "model": "sam2_hiera_large.safetensors",
+      "segmentor": "automaskgenerator",
+      "device": "cuda",
+      "precision": "fp16"
+    },
+    "class_type": "DownloadAndLoadSAM2Model",
+    "_meta": {
+      "title": "(Down)Load SAM2Model"
+    }
+  },
+  "443": {
+    "inputs": {
+      "min_pixels": 5,
+      "max_count": 30,
+      "color_map": [
+        "445",
+        1
+      ]
+    },
+    "class_type": "ColorMapToMasks //Inspire",
+    "_meta": {
+      "title": "Color Map To Masks (Inspire)"
+    }
+  },
+  "444": {
+    "inputs": {
+      "mask": [
+        "443",
+        0
+      ]
+    },
+    "class_type": "MaskToImage",
+    "_meta": {
+      "title": "Convert Mask to Image"
+    }
+  },
+  "445": {
+    "inputs": {
+      "points_per_side": 64,
+      "points_per_batch": 128,
+      "pred_iou_thresh": 0.7000000000000001,
+      "stability_score_thresh": 0.92,
+      "stability_score_offset": 0.7000000000000001,
+      "mask_threshold": 0,
+      "crop_n_layers": 0,
+      "box_nms_thresh": 0.7000000000000001,
+      "crop_nms_thresh": 0.7000000000000001,
+      "crop_overlap_ratio": 0.34,
+      "crop_n_points_downscale_factor": 1,
+      "min_mask_region_area": 0,
+      "use_m2m": true,
+      "keep_model_loaded": true,
+      "sam2_model": [
+        "442",
+        0
+      ],
+      "image": [
+        "431",
+        0
+      ]
+    },
+    "class_type": "Sam2AutoSegmentation",
+    "_meta": {
+      "title": "Sam2AutoSegmentation"
+    }
+  },
+  "459": {
+    "inputs": {
+      "value": 3
+    },
+    "class_type": "easy int",
+    "_meta": {
+      "title": "Detection"
+    }
+  },
+  "460": {
+    "inputs": {
+      "comparison": "a == b",
+      "a": [
+        "420",
+        0
+      ],
+      "b": [
+        "459",
+        0
+      ]
+    },
+    "class_type": "easy compare",
+    "_meta": {
+      "title": "Compare"
+    }
+  },
+  "461": {
+    "inputs": {
+      "switch": [
+        "460",
+        0
+      ],
+      "on_false": [
+        "422",
+        0
+      ],
+      "on_true": [
+        "412",
+        0
+      ]
+    },
+    "class_type": "InversionDemoLazySwitch",
+    "_meta": {
+      "title": "Lazy Switch"
+    }
+  },
+  "463": {
+    "inputs": {
+      "mask": [
+        "479",
+        0
+      ]
+    },
+    "class_type": "MaskToImage",
+    "_meta": {
+      "title": "Convert Mask to Image"
+    }
+  },
+  "464": {
+    "inputs": {
+      "batch": [
+        "466",
+        1
+      ]
+    },
+    "class_type": "BatchCount+",
+    "_meta": {
+      "title": "🔧 Batch Count"
+    }
+  },
+  "465": {
+    "inputs": {
+      "model": "CogFlorence-2.2-Large",
+      "precision": "fp16",
+      "attention": "flash_attention_2"
+    },
+    "class_type": "Florence2ModelLoader",
+    "_meta": {
+      "title": "Florence2ModelLoader"
+    }
+  },
+  "466": {
+    "inputs": {
+      "index": "",
+      "batch": false,
+      "data": [
+        "477",
+        3
+      ]
+    },
+    "class_type": "Florence2toCoordinates",
+    "_meta": {
+      "title": "Florence2 Coordinates"
+    }
+  },
+  "467": {
+    "inputs": {
+      "accumulation": [
+        "470",
+        0
+      ]
+    },
+    "class_type": "AccumulationToListNode",
+    "_meta": {
+      "title": "Accumulation to List"
+    }
+  },
+  "468": {
+    "inputs": {
+      "to_add": [
+        "471",
+        1
+      ],
+      "accumulation": [
+        "471",
+        2
+      ]
+    },
+    "class_type": "AccumulateNode",
+    "_meta": {
+      "title": "Accumulate"
+    }
+  },
+  "469": {
+    "inputs": {
+      "index": [
+        "472",
+        0
+      ],
+      "batch": false,
+      "data": [
+        "477",
+        3
+      ]
+    },
+    "class_type": "Florence2toCoordinates",
+    "_meta": {
+      "title": "Florence2 Coordinates"
+    }
+  },
+  "470": {
+    "inputs": {
+      "flow_control": [
+        "471",
+        0
+      ],
+      "initial_value1": [
+        "468",
+        0
+      ]
+    },
+    "class_type": "ForLoopClose",
+    "_meta": {
+      "title": "For Loop Close"
+    }
+  },
+  "471": {
+    "inputs": {
+      "remaining": [
+        "464",
+        0
+      ]
+    },
+    "class_type": "ForLoopOpen",
+    "_meta": {
+      "title": "For Loop Open"
+    }
+  },
+  "472": {
+    "inputs": {
+      "int_": [
+        "476",
+        0
+      ]
+    },
+    "class_type": "CR Integer To String",
+    "_meta": {
+      "title": "🔧 CR Integer To String"
+    }
+  },
+  "473": {
+    "inputs": {
+      "switch": [
+        "474",
+        0
+      ],
+      "on_false": [
+        "463",
+        0
+      ],
+      "on_true": [
+        "422",
+        0
+      ]
+    },
+    "class_type": "InversionDemoLazySwitch",
+    "_meta": {
+      "title": "Lazy Switch"
+    }
+  },
+  "474": {
+    "inputs": {
+      "comparison": "a == b",
+      "a": [
+        "464",
+        0
+      ],
+      "b": [
+        "475",
+        0
+      ]
+    },
+    "class_type": "easy compare",
+    "_meta": {
+      "title": "Compare"
+    }
+  },
+  "475": {
+    "inputs": {
+      "value": 0
+    },
+    "class_type": "easy int",
+    "_meta": {
+      "title": "Int"
+    }
+  },
+  "476": {
+    "inputs": {
+      "a": [
+        "467",
+        0
+      ],
+      "b": 1,
+      "operation": "subtract"
+    },
+    "class_type": "IntMathOperation",
+    "_meta": {
+      "title": "Int Math Operation"
+    }
+  },
+  "477": {
+    "inputs": {
+      "text_input": "",
+      "task": "region_proposal",
+      "fill_mask": true,
+      "keep_model_loaded": true,
+      "max_new_tokens": 1024,
+      "num_beams": 10,
+      "do_sample": true,
+      "output_mask_select": "",
+      "seed": 920801287060242,
+      "image": [
+        "461",
+        0
+      ],
+      "florence2_model": [
+        "465",
+        0
+      ]
+    },
+    "class_type": "Florence2Run",
+    "_meta": {
+      "title": "Florence2Run"
+    }
+  },
+  "478": {
+    "inputs": {
+      "model": "sam2_hiera_large.safetensors",
+      "segmentor": "single_image",
+      "device": "cuda",
+      "precision": "fp16"
+    },
+    "class_type": "DownloadAndLoadSAM2Model",
+    "_meta": {
+      "title": "(Down)Load SAM2Model"
+    }
+  },
+  "479": {
+    "inputs": {
+      "keep_model_loaded": true,
+      "individual_objects": true,
+      "sam2_model": [
+        "478",
+        0
+      ],
+      "image": [
+        "461",
+        0
+      ],
+      "bboxes": [
+        "469",
+        1
+      ]
+    },
+    "class_type": "Sam2Segmentation",
+    "_meta": {
+      "title": "Sam2Segmentation"
+    }
+  },
+  "517": {
+    "inputs": {
+      "switch": [
+        "429",
+        0
+      ],
+      "on_false": [
+        "422",
+        0
+      ],
+      "on_true": [
+        "412",
+        0
+      ]
+    },
+    "class_type": "InversionDemoLazySwitch",
+    "_meta": {
+      "title": "Lazy Switch"
+    }
+  },
+  "578": {
+    "inputs": {
+      "Text": ""
+    },
+    "class_type": "DF_Text_Box",
+    "_meta": {
+      "title": "Background Prompt"
+    }
+  },
+  "579": {
+    "inputs": {
+      "name": "models--google--flan-t5-xl--text_encoder",
+      "max_length": 0,
+      "dtype": "auto"
+    },
+    "class_type": "T5TextEncoderLoader #ELLA",
+    "_meta": {
+      "title": "Load T5 TextEncoder #ELLA"
+    }
+  },
+  "580": {
+    "inputs": {
+      "name": "ella-sd1.5-tsc-t5xl.safetensors"
+    },
+    "class_type": "ELLALoader",
+    "_meta": {
+      "title": "Load ELLA Model"
+    }
+  },
+  "581": {
+    "inputs": {
+      "Text": "cartoon, painting, illustration, (worst quality, low quality, normal quality:2), wearables, clothes, garments, hat, cap, tattoo"
+    },
+    "class_type": "DF_Text_Box",
+    "_meta": {
+      "title": "Text Box"
+    }
+  },
+  "582": {
+    "inputs": {
+      "model_type": "SD1",
+      "steps": 20,
+      "denoise": 1
+    },
+    "class_type": "AlignYourStepsScheduler",
+    "_meta": {
+      "title": "AlignYourStepsScheduler"
+    }
+  },
+  "583": {
+    "inputs": {
+      "sampler_name": "dpmpp_3m_sde_gpu"
+    },
+    "class_type": "KSamplerSelect",
+    "_meta": {
+      "title": "KSamplerSelect"
+    }
+  },
+  "584": {
+    "inputs": {
+      "ckpt_name": "epicrealism_naturalSinRC1VAE.safetensors"
+    },
+    "class_type": "CheckpointLoaderSimple",
+    "_meta": {
+      "title": "Load Checkpoint"
+    }
+  },
+  "586": {
+    "inputs": {
+      "invert_mask": false,
+      "grow": -1,
+      "blur": 0,
+      "mask": [
+        "943",
+        0
+      ]
+    },
+    "class_type": "LayerMask: MaskGrow",
+    "_meta": {
+      "title": "LayerMask: MaskGrow"
+    }
+  },
+  "587": {
+    "inputs": {
+      "scheduler": "karras",
+      "steps": 20,
+      "denoise": 1,
+      "model": [
+        "597",
+        0
+      ],
+      "ella": [
+        "580",
+        0
+      ],
+      "sigmas": [
+        "582",
+        0
+      ]
+    },
+    "class_type": "SetEllaTimesteps",
+    "_meta": {
+      "title": "Set ELLA Timesteps"
+    }
+  },
+  "588": {
+    "inputs": {
+      "text": [
+        "651",
+        0
+      ],
+      "text_clip": [
+        "589",
+        0
+      ],
+      "ella": [
+        "587",
+        0
+      ],
+      "text_encoder": [
+        "579",
+        0
+      ],
+      "clip": [
+        "597",
+        1
+      ]
+    },
+    "class_type": "EllaTextEncode",
+    "_meta": {
+      "title": "ELLA Text Encode"
+    }
+  },
+  "589": {
+    "inputs": {
+      "Text": ""
+    },
+    "class_type": "DF_Text_Box",
+    "_meta": {
+      "title": "Text Box"
+    }
+  },
+  "590": {
+    "inputs": {
+      "text": "cartoon, painting, illustration, (worst quality, low quality, normal quality:2), wearables, clothes, garments, hat, cap, tattoo",
+      "text_clip": [
+        "581",
+        0
+      ],
+      "ella": [
+        "587",
+        0
+      ],
+      "text_encoder": [
+        "579",
+        0
+      ],
+      "clip": [
+        "597",
+        1
+      ]
+    },
+    "class_type": "EllaTextEncode",
+    "_meta": {
+      "title": "ELLA Text Encode"
+    }
+  },
+  "592": {
+    "inputs": {
+      "strength": 0.75,
+      "start_percent": 0,
+      "end_percent": 0.55,
+      "positive": [
+        "642",
+        0
+      ],
+      "negative": [
+        "642",
+        1
+      ],
+      "control_net": [
+        "638",
+        0
+      ],
+      "image": [
+        "914",
+        0
+      ]
+    },
+    "class_type": "ControlNetApplyAdvanced",
+    "_meta": {
+      "title": "Apply ControlNet"
+    }
+  },
+  "593": {
+    "inputs": {
+      "strength": 0.43,
+      "start_percent": 0,
+      "end_percent": 0.55,
+      "positive": [
+        "588",
+        0
+      ],
+      "negative": [
+        "590",
+        0
+      ],
+      "control_net": [
+        "635",
+        0
+      ],
+      "image": [
+        "605",
+        0
+      ]
+    },
+    "class_type": "ControlNetApplyAdvanced",
+    "_meta": {
+      "title": "Apply ControlNet"
+    }
+  },
+  "594": {
+    "inputs": {
+      "seed": -1
+    },
+    "class_type": "Seed (rgthree)",
+    "_meta": {
+      "title": "Seed (rgthree)"
+    }
+  },
+  "597": {
+    "inputs": {
+      "lora_name": "add_detail.safetensors",
+      "strength_model": 0.9,
+      "strength_clip": 1,
+      "model": [
+        "584",
+        0
+      ],
+      "clip": [
+        "584",
+        1
+      ]
+    },
+    "class_type": "LoraLoader",
+    "_meta": {
+      "title": "Load LoRA"
+    }
+  },
+  "598": {
+    "inputs": {
+      "invert_mask": false,
+      "blend_mode": "normal",
+      "opacity": 100,
+      "background_image": [
+        "793",
+        0
+      ],
+      "layer_image": [
+        "789",
+        0
+      ],
+      "layer_mask": [
+        "586",
+        0
+      ]
+    },
+    "class_type": "LayerUtility: ImageBlend",
+    "_meta": {
+      "title": "LayerUtility: ImageBlend"
+    }
+  },
+  "599": {
+    "inputs": {
+      "add_noise": true,
+      "noise_seed": [
+        "594",
+        0
+      ],
+      "cfg": 2.4,
+      "model": [
+        "597",
+        0
+      ],
+      "positive": [
+        "901",
+        0
+      ],
+      "negative": [
+        "901",
+        1
+      ],
+      "sampler": [
+        "583",
+        0
+      ],
+      "sigmas": [
+        "602",
+        0
+      ],
+      "latent_image": [
+        "901",
+        2
+      ]
+    },
+    "class_type": "SamplerCustom",
+    "_meta": {
+      "title": "SamplerCustom"
+    }
+  },
+  "602": {
+    "inputs": {
+      "denoise": 0.55,
+      "sigmas": [
+        "582",
+        0
+      ]
+    },
+    "class_type": "SplitSigmasDenoise",
+    "_meta": {
+      "title": "SplitSigmasDenoise"
+    }
+  },
+  "603": {
+    "inputs": {
+      "add_noise": true,
+      "noise_seed": [
+        "594",
+        0
+      ],
+      "cfg": 2.4,
+      "model": [
+        "597",
+        0
+      ],
+      "positive": [
+        "901",
+        0
+      ],
+      "negative": [
+        "901",
+        1
+      ],
+      "sampler": [
+        "583",
+        0
+      ],
+      "sigmas": [
+        "602",
+        1
+      ],
+      "latent_image": [
+        "599",
+        1
+      ]
+    },
+    "class_type": "SamplerCustom",
+    "_meta": {
+      "title": "SamplerCustom"
+    }
+  },
+  "604": {
+    "inputs": {
+      "samples": [
+        "646",
+        0
+      ],
+      "vae": [
+        "584",
+        2
+      ]
+    },
+    "class_type": "VAEDecode",
+    "_meta": {
+      "title": "VAE Decode"
+    }
+  },
+  "605": {
+    "inputs": {
+      "low_threshold": 0.1,
+      "high_threshold": 0.2,
+      "image": [
+        "789",
+        0
+      ]
+    },
+    "class_type": "Canny",
+    "_meta": {
+      "title": "Canny"
+    }
+  },
+  "606": {
+    "inputs": {
+      "blur_type": "guidedFilter",
+      "blur_size": 12,
+      "factor": 10,
+      "images": [
+        "793",
+        0
+      ],
+      "reference": [
+        "598",
+        0
+      ]
+    },
+    "class_type": "ColorMatchImage",
+    "_meta": {
+      "title": "Color Match Image"
+    }
+  },
+  "607": {
+    "inputs": {
+      "fill_background": true,
+      "background_color": "#000000",
+      "RGBA_image": [
+        "621",
+        0
+      ],
+      "mask": [
+        "586",
+        0
+      ]
+    },
+    "class_type": "LayerUtility: ImageRemoveAlpha",
+    "_meta": {
+      "title": "LayerUtility: ImageRemoveAlpha"
+    }
+  },
+  "608": {
+    "inputs": {
+      "invert_mask": true,
+      "blend_mode": "normal",
+      "opacity": 70,
+      "background_image": [
+        "614",
+        0
+      ],
+      "layer_image": [
+        "598",
+        0
+      ],
+      "layer_mask": [
+        "610",
+        0
+      ]
+    },
+    "class_type": "LayerUtility: ImageBlend V2",
+    "_meta": {
+      "title": "LayerUtility: ImageBlend V2"
+    }
+  },
+  "609": {
+    "inputs": {
+      "mode": "add",
+      "blur_sigma": 3,
+      "blend_factor": 0.9470000000000001,
+      "target": [
+        "608",
+        0
+      ],
+      "source": [
+        "598",
+        0
+      ],
+      "mask": [
+        "586",
+        0
+      ]
+    },
+    "class_type": "DetailTransfer",
+    "_meta": {
+      "title": "Detail Transfer"
+    }
+  },
+  "610": {
+    "inputs": {
+      "channel": "red",
+      "image": [
+        "607",
+        0
+      ]
+    },
+    "class_type": "ImageToMask",
+    "_meta": {
+      "title": "Convert Image to Mask"
+    }
+  },
+  "611": {
+    "inputs": {
+      "image1": [
+        "793",
+        0
+      ],
+      "image2": [
+        "606",
+        0
+      ]
+    },
+    "class_type": "ImageBatch",
+    "_meta": {
+      "title": "Batch Images"
+    }
+  },
+  "612": {
+    "inputs": {
+      "operation": "mean",
+      "images": [
+        "611",
+        0
+      ]
+    },
+    "class_type": "BatchAverageImage",
+    "_meta": {
+      "title": "Batch Average Image"
+    }
+  },
+  "613": {
+    "inputs": {
+      "inputcount": 6,
+      "Update inputs": null,
+      "image_1": [
+        "793",
+        0
+      ],
+      "image_2": [
+        "625",
+        0
+      ],
+      "image_3": [
+        "612",
+        0
+      ],
+      "image_4": [
+        "626",
+        0
+      ],
+      "image_5": [
+        "606",
+        0
+      ],
+      "image_6": [
+        "627",
+        0
+      ]
+    },
+    "class_type": "ImageBatchMulti",
+    "_meta": {
+      "title": "Image Batch Multi"
+    }
+  },
+  "614": {
+    "inputs": {
+      "select": [
+        "616",
+        0
+      ],
+      "images": [
+        "613",
+        0
+      ]
+    },
+    "class_type": "LayerUtility: BatchSelector",
+    "_meta": {
+      "title": "LayerUtility: Batch Selector"
+    }
+  },
+  "615": {
+    "inputs": {
+      "string": "0 1 2 3 4 5"
+    },
+    "class_type": "LayerUtility: String",
+    "_meta": {
+      "title": "restoration_choice"
+    }
+  },
+  "616": {
+    "inputs": {
+      "prompt": [
+        "615",
+        0
+      ],
+      "find1": "Normal",
+      "replace1": "0",
+      "find2": "Balance",
+      "replace2": "1",
+      "find3": "Original",
+      "replace3": "2"
+    },
+    "class_type": "easy promptReplace",
+    "_meta": {
+      "title": "PromptReplace"
+    }
+  },
+  "621": {
+    "inputs": {
+      "da_model": [
+        "634",
+        0
+      ],
+      "images": [
+        "789",
+        0
+      ]
+    },
+    "class_type": "DepthAnything_V2",
+    "_meta": {
+      "title": "Depth Anything V2"
+    }
+  },
+  "623": {
+    "inputs": {
+      "image1": [
+        "793",
+        0
+      ],
+      "image2": [
+        "612",
+        0
+      ]
+    },
+    "class_type": "ImageBatch",
+    "_meta": {
+      "title": "Batch Images"
+    }
+  },
+  "624": {
+    "inputs": {
+      "image1": [
+        "612",
+        0
+      ],
+      "image2": [
+        "606",
+        0
+      ]
+    },
+    "class_type": "ImageBatch",
+    "_meta": {
+      "title": "Batch Images"
+    }
+  },
+  "625": {
+    "inputs": {
+      "operation": "mean",
+      "images": [
+        "623",
+        0
+      ]
+    },
+    "class_type": "BatchAverageImage",
+    "_meta": {
+      "title": "Batch Average Image"
+    }
+  },
+  "626": {
+    "inputs": {
+      "operation": "mean",
+      "images": [
+        "624",
+        0
+      ]
+    },
+    "class_type": "BatchAverageImage",
+    "_meta": {
+      "title": "Batch Average Image"
+    }
+  },
+  "627": {
+    "inputs": {
+      "x": 0,
+      "y": 0,
+      "resize_source": false,
+      "destination": [
+        "793",
+        0
+      ],
+      "source": [
+        "789",
+        0
+      ],
+      "mask": [
+        "586",
+        0
+      ]
+    },
+    "class_type": "ImageCompositeMasked",
+    "_meta": {
+      "title": "ImageCompositeMasked"
+    }
+  },
+  "634": {
+    "inputs": {
+      "model": "depth_anything_v2_vitl_fp16.safetensors"
+    },
+    "class_type": "DownloadAndLoadDepthAnythingV2Model",
+    "_meta": {
+      "title": "DownloadAndLoadDepthAnythingV2Model"
+    }
+  },
+  "635": {
+    "inputs": {
+      "control_net_name": "controlnet++_canny_sd15_fp16.safetensors"
+    },
+    "class_type": "ControlNetLoader",
+    "_meta": {
+      "title": "Load ControlNet Model"
+    }
+  },
+  "638": {
+    "inputs": {
+      "control_net_name": "controlnet++_depth_sd15_fp16.safetensors"
+    },
+    "class_type": "ControlNetLoader",
+    "_meta": {
+      "title": "Load ControlNet Model"
+    }
+  },
+  "640": {
+    "inputs": {
+      "detect_hand": "enable",
+      "detect_body": "enable",
+      "detect_face": "disable",
+      "resolution": 512,
+      "scale_stick_for_xinsr_cn": "enable",
+      "image": [
+        "517",
+        0
+      ]
+    },
+    "class_type": "OpenposePreprocessor",
+    "_meta": {
+      "title": "OpenPose Pose"
+    }
+  },
+  "641": {
+    "inputs": {
+      "control_net_name": "control_v11p_sd15_openpose_fp16.safetensors"
+    },
+    "class_type": "ControlNetLoader",
+    "_meta": {
+      "title": "Load ControlNet Model"
+    }
+  },
+  "642": {
+    "inputs": {
+      "strength": 1,
+      "start_percent": 0,
+      "end_percent": 1,
+      "positive": [
+        "593",
+        0
+      ],
+      "negative": [
+        "593",
+        1
+      ],
+      "control_net": [
+        "641",
+        0
+      ],
+      "image": [
+        "640",
+        0
+      ]
+    },
+    "class_type": "ControlNetApplyAdvanced",
+    "_meta": {
+      "title": "Apply ControlNet"
+    }
+  },
+  "643": {
+    "inputs": {
+      "control_net_name": "control_v11p_sd15_inpaint_fp16.safetensors"
+    },
+    "class_type": "ControlNetLoader",
+    "_meta": {
+      "title": "Load ControlNet Model"
+    }
+  },
+  "644": {
+    "inputs": {
+      "strength": 0.2,
+      "start_percent": 0,
+      "end_percent": 0.55,
+      "positive": [
+        "592",
+        0
+      ],
+      "negative": [
+        "592",
+        1
+      ],
+      "control_net": [
+        "643",
+        0
+      ],
+      "image": [
+        "645",
+        0
+      ]
+    },
+    "class_type": "ControlNetApplyAdvanced",
+    "_meta": {
+      "title": "Apply ControlNet"
+    }
+  },
+  "645": {
+    "inputs": {
+      "black_pixel_for_xinsir_cn": true,
+      "image": [
+        "517",
+        0
+      ],
+      "mask": [
+        "943",
+        0
+      ]
+    },
+    "class_type": "InpaintPreprocessor",
+    "_meta": {
+      "title": "Inpaint Preprocessor"
+    }
+  },
+  "646": {
+    "inputs": {
+      "seed": 391028774175490,
+      "steps": 20,
+      "cfg": 5,
+      "sampler_name": "dpmpp_sde_gpu",
+      "scheduler": "karras",
+      "denoise": 0.6,
+      "model": [
+        "597",
+        0
+      ],
+      "positive": [
+        "901",
+        0
+      ],
+      "negative": [
+        "901",
+        1
+      ],
+      "latent_image": [
+        "603",
+        0
+      ]
+    },
+    "class_type": "KSampler",
+    "_meta": {
+      "title": "KSampler"
+    }
+  },
+  "648": {
+    "inputs": {
+      "Text": "A fashion model"
+    },
+    "class_type": "DF_Text_Box",
+    "_meta": {
+      "title": "Model Prompt"
+    }
+  },
+  "651": {
+    "inputs": {
+      "action": "append",
+      "tidy_tags": "no",
+      "text_a": [
+        "799",
+        0
+      ],
+      "text_b": [
+        "578",
+        0
+      ],
+      "text_c": ""
+    },
+    "class_type": "StringFunction|pysssss",
+    "_meta": {
+      "title": "String Function 🐍"
+    }
+  },
+  "659": {
+    "inputs": {
+      "guide_size": 512,
+      "guide_size_for": true,
+      "max_size": 1024,
+      "seed": 1074815645041518,
+      "steps": 20,
+      "cfg": 5,
+      "sampler_name": "dpmpp_2m_sde_gpu",
+      "scheduler": "karras",
+      "denoise": 0.5,
+      "feather": 5,
+      "noise_mask": true,
+      "force_inpaint": true,
+      "bbox_threshold": 0.5,
+      "bbox_dilation": 10,
+      "bbox_crop_factor": 3,
+      "sam_detection_hint": "center-1",
+      "sam_dilation": 0,
+      "sam_threshold": 0.93,
+      "sam_bbox_expansion": 0,
+      "sam_mask_hint_threshold": 0.7000000000000001,
+      "sam_mask_hint_use_negative": "False",
+      "drop_size": 10,
+      "wildcard": [
+        "648",
+        0
+      ],
+      "cycle": 1,
+      "inpaint_model": true,
+      "noise_mask_feather": 20,
+      "image": [
+        "604",
+        0
+      ],
+      "model": [
+        "597",
+        0
+      ],
+      "clip": [
+        "597",
+        1
+      ],
+      "vae": [
+        "584",
+        2
+      ],
+      "positive": [
+        "787",
+        0
+      ],
+      "negative": [
+        "788",
+        0
+      ],
+      "bbox_detector": [
+        "660",
+        0
+      ],
+      "sam_model_opt": [
+        "661",
+        0
+      ]
+    },
+    "class_type": "FaceDetailer",
+    "_meta": {
+      "title": "FaceDetailer"
+    }
+  },
+  "660": {
+    "inputs": {
+      "model_name": "bbox/face_yolov8m.pt"
+    },
+    "class_type": "UltralyticsDetectorProvider",
+    "_meta": {
+      "title": "UltralyticsDetectorProvider"
+    }
+  },
+  "661": {
+    "inputs": {
+      "model_name": "sam_vit_b_01ec64.pth",
+      "device_mode": "Prefer GPU"
+    },
+    "class_type": "SAMLoader",
+    "_meta": {
+      "title": "SAMLoader (Impact)"
+    }
+  },
+  "787": {
+    "inputs": {
+      "text": [
+        "648",
+        0
+      ],
+      "clip": [
+        "597",
+        1
+      ]
+    },
+    "class_type": "CLIPTextEncode",
+    "_meta": {
+      "title": "CLIP Text Encode (Prompt)"
+    }
+  },
+  "788": {
+    "inputs": {
+      "text": [
+        "581",
+        0
+      ],
+      "clip": [
+        "597",
+        1
+      ]
+    },
+    "class_type": "CLIPTextEncode",
+    "_meta": {
+      "title": "CLIP Text Encode (Prompt)"
+    }
+  },
+  "789": {
+    "inputs": {
+      "image": [
+        "517",
+        0
+      ],
+      "alpha": [
+        "868",
+        0
+      ]
+    },
+    "class_type": "ICLightApplyMaskGrey",
+    "_meta": {
+      "title": "IC Light Apply Mask Grey"
+    }
+  },
+  "791": {
+    "inputs": {
+      "channel": "red",
+      "image": [
+        "885",
+        0
+      ]
+    },
+    "class_type": "ImageToMask",
+    "_meta": {
+      "title": "Convert Image to Mask"
+    }
+  },
+  "793": {
+    "inputs": {
+      "switch": [
+        "794",
+        0
+      ],
+      "on_false": [
+        "604",
+        0
+      ],
+      "on_true": [
+        "659",
+        0
+      ]
+    },
+    "class_type": "InversionDemoLazySwitch",
+    "_meta": {
+      "title": "Lazy Switch"
+    }
+  },
+  "794": {
+    "inputs": {
+      "value": true
+    },
+    "class_type": "easy boolean",
+    "_meta": {
+      "title": "Boolean_FD"
+    }
+  },
+  "799": {
+    "inputs": {
+      "action": "append",
+      "tidy_tags": "no",
+      "text_a": [
+        "648",
+        0
+      ],
+      "text_b": [
+        "800",
+        0
+      ],
+      "text_c": [
+        "578",
+        0
+      ]
+    },
+    "class_type": "StringFunction|pysssss",
+    "_meta": {
+      "title": "String Function 🐍"
+    }
+  },
+  "800": {
+    "inputs": {
+      "Text": ", in the background: "
+    },
+    "class_type": "DF_Text_Box",
+    "_meta": {
+      "title": "Text"
+    }
+  },
+  "861": {
+    "inputs": {
+      "model": "segformer_b3_fashion",
+      "shirt": true,
+      "top": true,
+      "sweater": true,
+      "cardigan": true,
+      "jacket": true,
+      "vest": true,
+      "pants": true,
+      "shorts": true,
+      "skirt": true,
+      "coat": true,
+      "dress": true,
+      "jumpsuit": true,
+      "cape": true,
+      "glasses": true,
+      "hat": true,
+      "hairaccessory": true,
+      "tie": true,
+      "glove": true,
+      "watch": true,
+      "belt": true,
+      "legwarmer": true,
+      "tights": true,
+      "sock": true,
+      "shoe": true,
+      "bagwallet": true,
+      "scarf": true,
+      "umbrella": true,
+      "hood": true,
+      "collar": true,
+      "lapel": true,
+      "epaulette": true,
+      "sleeve": true,
+      "pocket": true,
+      "neckline": true,
+      "buckle": true,
+      "zipper": true,
+      "applique": true,
+      "bead": true,
+      "bow": true,
+      "flower": true,
+      "fringe": true,
+      "ribbon": true,
+      "rivet": true,
+      "ruffle": true,
+      "sequin": true,
+      "tassel": true
+    },
+    "class_type": "LayerMask: SegformerFashionPipelineLoader",
+    "_meta": {
+      "title": "LayerMask: Segformer Fashion Pipeline"
+    }
+  },
+  "862": {
+    "inputs": {
+      "detail_method": "VITMatte",
+      "detail_erode": 8,
+      "detail_dilate": 6,
+      "black_point": 0.01,
+      "white_point": 0.99,
+      "process_detail": true,
+      "device": "cuda",
+      "max_megapixels": 2,
+      "image": [
+        "517",
+        0
+      ],
+      "segformer_pipeline": [
+        "861",
+        0
+      ]
+    },
+    "class_type": "LayerMask: SegformerUltraV2",
+    "_meta": {
+      "title": "LayerMask: Segformer Ultra V2"
+    }
+  },
+  "868": {
+    "inputs": {
+      "switch": [
+        "869",
+        0
+      ],
+      "on_false": [
+        "791",
+        0
+      ],
+      "on_true": [
+        "862",
+        1
+      ]
+    },
+    "class_type": "InversionDemoLazySwitch",
+    "_meta": {
+      "title": "Lazy Switch"
+    }
+  },
+  "869": {
+    "inputs": {
+      "value": true
+    },
+    "class_type": "easy boolean",
+    "_meta": {
+      "title": "Boolean_Auto_Mask"
+    }
+  },
+  "870": {
+    "inputs": {
+      "mask": [
+        "586",
+        0
+      ]
+    },
+    "class_type": "InvertMask",
+    "_meta": {
+      "title": "InvertMask"
+    }
+  },
+  "885": {
+    "inputs": {
+      "base64_data": "iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAQAAADZc7J/AAAAH0lEQVR42mNkoBAwjhowasCoAaMGjBowasCoAcPNAACOMAAhOO/A7wAAAABJRU5ErkJggg==",
+      "image_output": "Hide",
+      "save_prefix": "ComfyUI"
+    },
+    "class_type": "easy loadImageBase64",
+    "_meta": {
+      "title": "Load Image (Base64) Garment Mask"
+    }
+  },
+  "901": {
+    "inputs": {
+      "positive": [
+        "644",
+        0
+      ],
+      "negative": [
+        "644",
+        1
+      ],
+      "vae": [
+        "584",
+        2
+      ],
+      "pixels": [
+        "517",
+        0
+      ],
+      "mask": [
+        "870",
+        0
+      ]
+    },
+    "class_type": "InpaintModelConditioning",
+    "_meta": {
+      "title": "InpaintModelConditioning"
+    }
+  },
+  "914": {
+    "inputs": {
+      "image_from": [
+        "621",
+        0
+      ],
+      "image_to": [
+        "915",
+        0
+      ],
+      "mask": [
+        "918",
+        0
+      ]
+    },
+    "class_type": "ImageCompositeFromMaskBatch+",
+    "_meta": {
+      "title": "🔧 Image Composite From Mask Batch"
+    }
+  },
+  "915": {
+    "inputs": {
+      "width": [
+        "917",
+        4
+      ],
+      "height": [
+        "917",
+        5
+      ],
+      "red": 0,
+      "green": 0,
+      "blue": 0
+    },
+    "class_type": "Image Blank",
+    "_meta": {
+      "title": "Image Blank"
+    }
+  },
+  "917": {
+    "inputs": {
+      "image": [
+        "621",
+        0
+      ]
+    },
+    "class_type": "Image Size to Number",
+    "_meta": {
+      "title": "Image Size to Number"
+    }
+  },
+  "918": {
+    "inputs": {
+      "mask": [
+        "868",
+        0
+      ]
+    },
+    "class_type": "InvertMask",
+    "_meta": {
+      "title": "InvertMask"
+    }
+  },
+  "943": {
+    "inputs": {
+      "black_threshold": 75,
+      "white_threshold": 175,
+      "masks": [
+        "868",
+        0
+      ]
+    },
+    "class_type": "Mask Threshold Region",
+    "_meta": {
+      "title": "Mask Threshold Region"
+    }
+  },
+  "966": {
+    "inputs": {
+      "samples": [
+        "603",
+        0
+      ],
+      "vae": [
+        "584",
+        2
+      ]
+    },
+    "class_type": "VAEDecode",
+    "_meta": {
+      "title": "VAE Decode"
+    }
+  }
+}
