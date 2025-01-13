@@ -1,822 +1,4 @@
 {
-  "412": {
-    "inputs": {
-      "base64_data": "iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAQAAADZc7J/AAAAH0lEQVR42mNkoBAwjhowasCoAaMGjBowasCoAcPNAACOMAAhOO/A7wAAAABJRU5ErkJggg==",
-      "image_output": "Hide",
-      "save_prefix": "ComfyUI"
-    },
-    "class_type": "easy loadImageBase64",
-    "_meta": {
-      "title": "Load Image (Base64)"
-    }
-  },
-  "413": {
-    "inputs": {
-      "filename_prefix": "Image",
-      "images": [
-        "414",
-        0
-      ]
-    },
-    "class_type": "SaveImage",
-    "_meta": {
-      "title": "Save Image"
-    }
-  },
-  "414": {
-    "inputs": {
-      "index": [
-        "420",
-        0
-      ],
-      "value0": [
-        "416",
-        0
-      ],
-      "value1": [
-        "434",
-        0
-      ],
-      "value2": [
-        "444",
-        0
-      ],
-      "value3": [
-        "473",
-        0
-      ],
-      "value4": [
-        "609",
-        0
-      ]
-    },
-    "class_type": "InversionDemoLazyIndexSwitch",
-    "_meta": {
-      "title": "output_select"
-    }
-  },
-  "415": {
-    "inputs": {
-      "upscale_model": "4x_NMKD-Siax_200k.pth",
-      "mode": "rescale",
-      "rescale_factor": [
-        "432",
-        1
-      ],
-      "resize_width": 1024,
-      "resampling_method": "lanczos",
-      "supersample": "true",
-      "rounding_modulus": 8,
-      "image": [
-        "419",
-        0
-      ]
-    },
-    "class_type": "CR Upscale Image",
-    "_meta": {
-      "title": "🔍 CR Upscale Image"
-    }
-  },
-  "416": {
-    "inputs": {
-      "upscale_method": "lanczos",
-      "width": 1024,
-      "height": [
-        "433",
-        0
-      ],
-      "crop": "center",
-      "image": [
-        "415",
-        0
-      ]
-    },
-    "class_type": "ImageScale",
-    "_meta": {
-      "title": "Upscale Image"
-    }
-  },
-  "417": {
-    "inputs": {
-      "image": [
-        "415",
-        0
-      ]
-    },
-    "class_type": "LayerUtility: GetImageSize",
-    "_meta": {
-      "title": "LayerUtility: GetImageSize"
-    }
-  },
-  "418": {
-    "inputs": {
-      "image": [
-        "419",
-        0
-      ]
-    },
-    "class_type": "LayerUtility: GetImageSize",
-    "_meta": {
-      "title": "LayerUtility: GetImageSize"
-    }
-  },
-  "419": {
-    "inputs": {
-      "switch": [
-        "421",
-        0
-      ],
-      "on_false": [
-        "422",
-        0
-      ],
-      "on_true": [
-        "412",
-        0
-      ]
-    },
-    "class_type": "InversionDemoLazySwitch",
-    "_meta": {
-      "title": "Lazy Switch"
-    }
-  },
-  "420": {
-    "inputs": {
-      "value": 4
-    },
-    "class_type": "easy int",
-    "_meta": {
-      "title": "Selected_Workflow"
-    }
-  },
-  "421": {
-    "inputs": {
-      "comparison": "a == b",
-      "a": [
-        "420",
-        0
-      ],
-      "b": [
-        "423",
-        0
-      ]
-    },
-    "class_type": "easy compare",
-    "_meta": {
-      "title": "Compare"
-    }
-  },
-  "422": {
-    "inputs": {
-      "base64_data": "iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAQAAADZc7J/AAAAH0lEQVR42mNkoBAwjhowasCoAaMGjBowasCoAcPNAACOMAAhOO/A7wAAAABJRU5ErkJggg==",
-      "image_output": "Hide",
-      "save_prefix": "ComfyUI"
-    },
-    "class_type": "easy loadImageBase64",
-    "_meta": {
-      "title": "Empty"
-    }
-  },
-  "423": {
-    "inputs": {
-      "value": 0
-    },
-    "class_type": "easy int",
-    "_meta": {
-      "title": "Upscale"
-    }
-  },
-  "424": {
-    "inputs": {
-      "value": 1
-    },
-    "class_type": "easy int",
-    "_meta": {
-      "title": "WhiteBG"
-    }
-  },
-  "425": {
-    "inputs": {
-      "value": 2
-    },
-    "class_type": "easy int",
-    "_meta": {
-      "title": "Segmentation"
-    }
-  },
-  "426": {
-    "inputs": {
-      "value": 4
-    },
-    "class_type": "easy int",
-    "_meta": {
-      "title": "ChangeBG"
-    }
-  },
-  "427": {
-    "inputs": {
-      "comparison": "a == b",
-      "a": [
-        "420",
-        0
-      ],
-      "b": [
-        "424",
-        0
-      ]
-    },
-    "class_type": "easy compare",
-    "_meta": {
-      "title": "Compare"
-    }
-  },
-  "428": {
-    "inputs": {
-      "comparison": "a == b",
-      "a": [
-        "420",
-        0
-      ],
-      "b": [
-        "425",
-        0
-      ]
-    },
-    "class_type": "easy compare",
-    "_meta": {
-      "title": "Compare"
-    }
-  },
-  "429": {
-    "inputs": {
-      "comparison": "a == b",
-      "a": [
-        "420",
-        0
-      ],
-      "b": [
-        "426",
-        0
-      ]
-    },
-    "class_type": "easy compare",
-    "_meta": {
-      "title": "Compare"
-    }
-  },
-  "430": {
-    "inputs": {
-      "switch": [
-        "427",
-        0
-      ],
-      "on_false": [
-        "422",
-        0
-      ],
-      "on_true": [
-        "412",
-        0
-      ]
-    },
-    "class_type": "InversionDemoLazySwitch",
-    "_meta": {
-      "title": "Lazy Switch"
-    }
-  },
-  "431": {
-    "inputs": {
-      "switch": [
-        "428",
-        0
-      ],
-      "on_false": [
-        "422",
-        0
-      ],
-      "on_true": [
-        "412",
-        0
-      ]
-    },
-    "class_type": "InversionDemoLazySwitch",
-    "_meta": {
-      "title": "Lazy Switch"
-    }
-  },
-  "432": {
-    "inputs": {
-      "value": "1024/a",
-      "a": [
-        "418",
-        0
-      ]
-    },
-    "class_type": "SimpleMath+",
-    "_meta": {
-      "title": "🔧 Simple Math"
-    }
-  },
-  "433": {
-    "inputs": {
-      "value": "b/(a/1024) - b/(a/1024)%8",
-      "a": [
-        "417",
-        0
-      ],
-      "b": [
-        "417",
-        1
-      ]
-    },
-    "class_type": "SimpleMath+",
-    "_meta": {
-      "title": "🔧 Simple Math"
-    }
-  },
-  "434": {
-    "inputs": {
-      "image_from": [
-        "430",
-        0
-      ],
-      "image_to": [
-        "435",
-        0
-      ],
-      "mask": [
-        "439",
-        0
-      ]
-    },
-    "class_type": "ImageCompositeFromMaskBatch+",
-    "_meta": {
-      "title": "🔧 Image Composite From Mask Batch"
-    }
-  },
-  "435": {
-    "inputs": {
-      "width": [
-        "437",
-        4
-      ],
-      "height": [
-        "437",
-        5
-      ],
-      "red": 255,
-      "green": 255,
-      "blue": 255
-    },
-    "class_type": "Image Blank",
-    "_meta": {
-      "title": "Image Blank"
-    }
-  },
-  "437": {
-    "inputs": {
-      "image": [
-        "430",
-        0
-      ]
-    },
-    "class_type": "Image Size to Number",
-    "_meta": {
-      "title": "Image Size to Number"
-    }
-  },
-  "439": {
-    "inputs": {
-      "mask": [
-        "440",
-        1
-      ]
-    },
-    "class_type": "InvertMask",
-    "_meta": {
-      "title": "InvertMask"
-    }
-  },
-  "440": {
-    "inputs": {
-      "detail_method": "GuidedFilter",
-      "detail_erode": 4,
-      "detail_dilate": 2,
-      "black_point": 0.01,
-      "white_point": 0.99,
-      "process_detail": false,
-      "device": "cuda",
-      "max_megapixels": 2,
-      "image": [
-        "430",
-        0
-      ],
-      "birefnet_model": [
-        "441",
-        0
-      ]
-    },
-    "class_type": "LayerMask: BiRefNetUltraV2",
-    "_meta": {
-      "title": "LayerMask: BiRefNet Ultra V2"
-    }
-  },
-  "441": {
-    "inputs": {
-      "model": "BiRefNet-general-epoch_244.pth"
-    },
-    "class_type": "LayerMask: LoadBiRefNetModel",
-    "_meta": {
-      "title": "LayerMask: Load BiRefNet Model"
-    }
-  },
-  "442": {
-    "inputs": {
-      "model": "sam2_hiera_large.safetensors",
-      "segmentor": "automaskgenerator",
-      "device": "cuda",
-      "precision": "fp16"
-    },
-    "class_type": "DownloadAndLoadSAM2Model",
-    "_meta": {
-      "title": "(Down)Load SAM2Model"
-    }
-  },
-  "443": {
-    "inputs": {
-      "min_pixels": 5,
-      "max_count": 30,
-      "color_map": [
-        "445",
-        1
-      ]
-    },
-    "class_type": "ColorMapToMasks //Inspire",
-    "_meta": {
-      "title": "Color Map To Masks (Inspire)"
-    }
-  },
-  "444": {
-    "inputs": {
-      "mask": [
-        "443",
-        0
-      ]
-    },
-    "class_type": "MaskToImage",
-    "_meta": {
-      "title": "Convert Mask to Image"
-    }
-  },
-  "445": {
-    "inputs": {
-      "points_per_side": 64,
-      "points_per_batch": 128,
-      "pred_iou_thresh": 0.7000000000000001,
-      "stability_score_thresh": 0.92,
-      "stability_score_offset": 0.7000000000000001,
-      "mask_threshold": 0,
-      "crop_n_layers": 0,
-      "box_nms_thresh": 0.7000000000000001,
-      "crop_nms_thresh": 0.7000000000000001,
-      "crop_overlap_ratio": 0.34,
-      "crop_n_points_downscale_factor": 1,
-      "min_mask_region_area": 0,
-      "use_m2m": true,
-      "keep_model_loaded": true,
-      "sam2_model": [
-        "442",
-        0
-      ],
-      "image": [
-        "431",
-        0
-      ]
-    },
-    "class_type": "Sam2AutoSegmentation",
-    "_meta": {
-      "title": "Sam2AutoSegmentation"
-    }
-  },
-  "459": {
-    "inputs": {
-      "value": 3
-    },
-    "class_type": "easy int",
-    "_meta": {
-      "title": "Detection"
-    }
-  },
-  "460": {
-    "inputs": {
-      "comparison": "a == b",
-      "a": [
-        "420",
-        0
-      ],
-      "b": [
-        "459",
-        0
-      ]
-    },
-    "class_type": "easy compare",
-    "_meta": {
-      "title": "Compare"
-    }
-  },
-  "461": {
-    "inputs": {
-      "switch": [
-        "460",
-        0
-      ],
-      "on_false": [
-        "422",
-        0
-      ],
-      "on_true": [
-        "412",
-        0
-      ]
-    },
-    "class_type": "InversionDemoLazySwitch",
-    "_meta": {
-      "title": "Lazy Switch"
-    }
-  },
-  "463": {
-    "inputs": {
-      "mask": [
-        "479",
-        0
-      ]
-    },
-    "class_type": "MaskToImage",
-    "_meta": {
-      "title": "Convert Mask to Image"
-    }
-  },
-  "464": {
-    "inputs": {
-      "batch": [
-        "466",
-        1
-      ]
-    },
-    "class_type": "BatchCount+",
-    "_meta": {
-      "title": "🔧 Batch Count"
-    }
-  },
-  "465": {
-    "inputs": {
-      "model": "CogFlorence-2.2-Large",
-      "precision": "fp16",
-      "attention": "flash_attention_2"
-    },
-    "class_type": "Florence2ModelLoader",
-    "_meta": {
-      "title": "Florence2ModelLoader"
-    }
-  },
-  "466": {
-    "inputs": {
-      "index": "",
-      "batch": false,
-      "data": [
-        "477",
-        3
-      ]
-    },
-    "class_type": "Florence2toCoordinates",
-    "_meta": {
-      "title": "Florence2 Coordinates"
-    }
-  },
-  "467": {
-    "inputs": {
-      "accumulation": [
-        "470",
-        0
-      ]
-    },
-    "class_type": "AccumulationToListNode",
-    "_meta": {
-      "title": "Accumulation to List"
-    }
-  },
-  "468": {
-    "inputs": {
-      "to_add": [
-        "471",
-        1
-      ],
-      "accumulation": [
-        "471",
-        2
-      ]
-    },
-    "class_type": "AccumulateNode",
-    "_meta": {
-      "title": "Accumulate"
-    }
-  },
-  "469": {
-    "inputs": {
-      "index": [
-        "472",
-        0
-      ],
-      "batch": false,
-      "data": [
-        "477",
-        3
-      ]
-    },
-    "class_type": "Florence2toCoordinates",
-    "_meta": {
-      "title": "Florence2 Coordinates"
-    }
-  },
-  "470": {
-    "inputs": {
-      "flow_control": [
-        "471",
-        0
-      ],
-      "initial_value1": [
-        "468",
-        0
-      ]
-    },
-    "class_type": "ForLoopClose",
-    "_meta": {
-      "title": "For Loop Close"
-    }
-  },
-  "471": {
-    "inputs": {
-      "remaining": [
-        "464",
-        0
-      ]
-    },
-    "class_type": "ForLoopOpen",
-    "_meta": {
-      "title": "For Loop Open"
-    }
-  },
-  "472": {
-    "inputs": {
-      "int_": [
-        "476",
-        0
-      ]
-    },
-    "class_type": "CR Integer To String",
-    "_meta": {
-      "title": "🔧 CR Integer To String"
-    }
-  },
-  "473": {
-    "inputs": {
-      "switch": [
-        "474",
-        0
-      ],
-      "on_false": [
-        "463",
-        0
-      ],
-      "on_true": [
-        "422",
-        0
-      ]
-    },
-    "class_type": "InversionDemoLazySwitch",
-    "_meta": {
-      "title": "Lazy Switch"
-    }
-  },
-  "474": {
-    "inputs": {
-      "comparison": "a == b",
-      "a": [
-        "464",
-        0
-      ],
-      "b": [
-        "475",
-        0
-      ]
-    },
-    "class_type": "easy compare",
-    "_meta": {
-      "title": "Compare"
-    }
-  },
-  "475": {
-    "inputs": {
-      "value": 0
-    },
-    "class_type": "easy int",
-    "_meta": {
-      "title": "Int"
-    }
-  },
-  "476": {
-    "inputs": {
-      "a": [
-        "467",
-        0
-      ],
-      "b": 1,
-      "operation": "subtract"
-    },
-    "class_type": "IntMathOperation",
-    "_meta": {
-      "title": "Int Math Operation"
-    }
-  },
-  "477": {
-    "inputs": {
-      "text_input": "",
-      "task": "region_proposal",
-      "fill_mask": true,
-      "keep_model_loaded": true,
-      "max_new_tokens": 1024,
-      "num_beams": 10,
-      "do_sample": true,
-      "output_mask_select": "",
-      "seed": 920801287060242,
-      "image": [
-        "461",
-        0
-      ],
-      "florence2_model": [
-        "465",
-        0
-      ]
-    },
-    "class_type": "Florence2Run",
-    "_meta": {
-      "title": "Florence2Run"
-    }
-  },
-  "478": {
-    "inputs": {
-      "model": "sam2_hiera_large.safetensors",
-      "segmentor": "single_image",
-      "device": "cuda",
-      "precision": "fp16"
-    },
-    "class_type": "DownloadAndLoadSAM2Model",
-    "_meta": {
-      "title": "(Down)Load SAM2Model"
-    }
-  },
-  "479": {
-    "inputs": {
-      "keep_model_loaded": true,
-      "individual_objects": true,
-      "sam2_model": [
-        "478",
-        0
-      ],
-      "image": [
-        "461",
-        0
-      ],
-      "bboxes": [
-        "469",
-        1
-      ]
-    },
-    "class_type": "Sam2Segmentation",
-    "_meta": {
-      "title": "Sam2Segmentation"
-    }
-  },
-  "517": {
-    "inputs": {
-      "switch": [
-        "429",
-        0
-      ],
-      "on_false": [
-        "422",
-        0
-      ],
-      "on_true": [
-        "412",
-        0
-      ]
-    },
-    "class_type": "InversionDemoLazySwitch",
-    "_meta": {
-      "title": "Lazy Switch"
-    }
-  },
   "578": {
     "inputs": {
       "Text": ""
@@ -826,58 +8,9 @@
       "title": "Background Prompt"
     }
   },
-  "579": {
-    "inputs": {
-      "name": "models--google--flan-t5-xl--text_encoder",
-      "max_length": 0,
-      "dtype": "auto"
-    },
-    "class_type": "T5TextEncoderLoader #ELLA",
-    "_meta": {
-      "title": "Load T5 TextEncoder #ELLA"
-    }
-  },
-  "580": {
-    "inputs": {
-      "name": "ella-sd1.5-tsc-t5xl.safetensors"
-    },
-    "class_type": "ELLALoader",
-    "_meta": {
-      "title": "Load ELLA Model"
-    }
-  },
-  "581": {
-    "inputs": {
-      "Text": "cartoon, painting, illustration, (worst quality, low quality, normal quality:2), wearables, clothes, garments, hat, cap, tattoo"
-    },
-    "class_type": "DF_Text_Box",
-    "_meta": {
-      "title": "Text Box"
-    }
-  },
-  "582": {
-    "inputs": {
-      "model_type": "SD1",
-      "steps": 20,
-      "denoise": 1
-    },
-    "class_type": "AlignYourStepsScheduler",
-    "_meta": {
-      "title": "AlignYourStepsScheduler"
-    }
-  },
-  "583": {
-    "inputs": {
-      "sampler_name": "dpmpp_3m_sde_gpu"
-    },
-    "class_type": "KSamplerSelect",
-    "_meta": {
-      "title": "KSamplerSelect"
-    }
-  },
   "584": {
     "inputs": {
-      "ckpt_name": "epicrealism_naturalSinRC1VAE.safetensors"
+      "ckpt_name": "JuggernautXL.safetensors"
     },
     "class_type": "CheckpointLoaderSimple",
     "_meta": {
@@ -890,152 +23,13 @@
       "grow": -1,
       "blur": 0,
       "mask": [
-        "943",
-        0
+        "1846",
+        1
       ]
     },
     "class_type": "LayerMask: MaskGrow",
     "_meta": {
       "title": "LayerMask: MaskGrow"
-    }
-  },
-  "587": {
-    "inputs": {
-      "scheduler": "karras",
-      "steps": 20,
-      "denoise": 1,
-      "model": [
-        "597",
-        0
-      ],
-      "ella": [
-        "580",
-        0
-      ],
-      "sigmas": [
-        "582",
-        0
-      ]
-    },
-    "class_type": "SetEllaTimesteps",
-    "_meta": {
-      "title": "Set ELLA Timesteps"
-    }
-  },
-  "588": {
-    "inputs": {
-      "text": [
-        "651",
-        0
-      ],
-      "text_clip": [
-        "589",
-        0
-      ],
-      "ella": [
-        "587",
-        0
-      ],
-      "text_encoder": [
-        "579",
-        0
-      ],
-      "clip": [
-        "597",
-        1
-      ]
-    },
-    "class_type": "EllaTextEncode",
-    "_meta": {
-      "title": "ELLA Text Encode"
-    }
-  },
-  "589": {
-    "inputs": {
-      "Text": ""
-    },
-    "class_type": "DF_Text_Box",
-    "_meta": {
-      "title": "Text Box"
-    }
-  },
-  "590": {
-    "inputs": {
-      "text": "cartoon, painting, illustration, (worst quality, low quality, normal quality:2), wearables, clothes, garments, hat, cap, tattoo",
-      "text_clip": [
-        "581",
-        0
-      ],
-      "ella": [
-        "587",
-        0
-      ],
-      "text_encoder": [
-        "579",
-        0
-      ],
-      "clip": [
-        "597",
-        1
-      ]
-    },
-    "class_type": "EllaTextEncode",
-    "_meta": {
-      "title": "ELLA Text Encode"
-    }
-  },
-  "592": {
-    "inputs": {
-      "strength": 0.75,
-      "start_percent": 0,
-      "end_percent": 0.55,
-      "positive": [
-        "642",
-        0
-      ],
-      "negative": [
-        "642",
-        1
-      ],
-      "control_net": [
-        "638",
-        0
-      ],
-      "image": [
-        "914",
-        0
-      ]
-    },
-    "class_type": "ControlNetApplyAdvanced",
-    "_meta": {
-      "title": "Apply ControlNet"
-    }
-  },
-  "593": {
-    "inputs": {
-      "strength": 0.43,
-      "start_percent": 0,
-      "end_percent": 0.55,
-      "positive": [
-        "588",
-        0
-      ],
-      "negative": [
-        "590",
-        0
-      ],
-      "control_net": [
-        "635",
-        0
-      ],
-      "image": [
-        "605",
-        0
-      ]
-    },
-    "class_type": "ControlNetApplyAdvanced",
-    "_meta": {
-      "title": "Apply ControlNet"
     }
   },
   "594": {
@@ -1047,141 +41,10 @@
       "title": "Seed (rgthree)"
     }
   },
-  "597": {
-    "inputs": {
-      "lora_name": "add_detail.safetensors",
-      "strength_model": 0.9,
-      "strength_clip": 1,
-      "model": [
-        "584",
-        0
-      ],
-      "clip": [
-        "584",
-        1
-      ]
-    },
-    "class_type": "LoraLoader",
-    "_meta": {
-      "title": "Load LoRA"
-    }
-  },
-  "598": {
-    "inputs": {
-      "invert_mask": false,
-      "blend_mode": "normal",
-      "opacity": 100,
-      "background_image": [
-        "793",
-        0
-      ],
-      "layer_image": [
-        "789",
-        0
-      ],
-      "layer_mask": [
-        "586",
-        0
-      ]
-    },
-    "class_type": "LayerUtility: ImageBlend",
-    "_meta": {
-      "title": "LayerUtility: ImageBlend"
-    }
-  },
-  "599": {
-    "inputs": {
-      "add_noise": true,
-      "noise_seed": [
-        "594",
-        0
-      ],
-      "cfg": 2.4,
-      "model": [
-        "597",
-        0
-      ],
-      "positive": [
-        "901",
-        0
-      ],
-      "negative": [
-        "901",
-        1
-      ],
-      "sampler": [
-        "583",
-        0
-      ],
-      "sigmas": [
-        "602",
-        0
-      ],
-      "latent_image": [
-        "901",
-        2
-      ]
-    },
-    "class_type": "SamplerCustom",
-    "_meta": {
-      "title": "SamplerCustom"
-    }
-  },
-  "602": {
-    "inputs": {
-      "denoise": 0.55,
-      "sigmas": [
-        "582",
-        0
-      ]
-    },
-    "class_type": "SplitSigmasDenoise",
-    "_meta": {
-      "title": "SplitSigmasDenoise"
-    }
-  },
-  "603": {
-    "inputs": {
-      "add_noise": true,
-      "noise_seed": [
-        "594",
-        0
-      ],
-      "cfg": 2.4,
-      "model": [
-        "597",
-        0
-      ],
-      "positive": [
-        "901",
-        0
-      ],
-      "negative": [
-        "901",
-        1
-      ],
-      "sampler": [
-        "583",
-        0
-      ],
-      "sigmas": [
-        "602",
-        1
-      ],
-      "latent_image": [
-        "599",
-        1
-      ]
-    },
-    "class_type": "SamplerCustom",
-    "_meta": {
-      "title": "SamplerCustom"
-    }
-  },
   "604": {
     "inputs": {
       "samples": [
-        "646",
+        "1537",
         0
       ],
       "vae": [
@@ -1194,45 +57,12 @@
       "title": "VAE Decode"
     }
   },
-  "605": {
-    "inputs": {
-      "low_threshold": 0.1,
-      "high_threshold": 0.2,
-      "image": [
-        "789",
-        0
-      ]
-    },
-    "class_type": "Canny",
-    "_meta": {
-      "title": "Canny"
-    }
-  },
-  "606": {
-    "inputs": {
-      "blur_type": "guidedFilter",
-      "blur_size": 12,
-      "factor": 10,
-      "images": [
-        "793",
-        0
-      ],
-      "reference": [
-        "598",
-        0
-      ]
-    },
-    "class_type": "ColorMatchImage",
-    "_meta": {
-      "title": "Color Match Image"
-    }
-  },
   "607": {
     "inputs": {
       "fill_background": true,
       "background_color": "#000000",
       "RGBA_image": [
-        "621",
+        "789",
         0
       ],
       "mask": [
@@ -1243,52 +73,6 @@
     "class_type": "LayerUtility: ImageRemoveAlpha",
     "_meta": {
       "title": "LayerUtility: ImageRemoveAlpha"
-    }
-  },
-  "608": {
-    "inputs": {
-      "invert_mask": true,
-      "blend_mode": "normal",
-      "opacity": 70,
-      "background_image": [
-        "614",
-        0
-      ],
-      "layer_image": [
-        "598",
-        0
-      ],
-      "layer_mask": [
-        "610",
-        0
-      ]
-    },
-    "class_type": "LayerUtility: ImageBlend V2",
-    "_meta": {
-      "title": "LayerUtility: ImageBlend V2"
-    }
-  },
-  "609": {
-    "inputs": {
-      "mode": "add",
-      "blur_sigma": 3,
-      "blend_factor": 0.9470000000000001,
-      "target": [
-        "608",
-        0
-      ],
-      "source": [
-        "598",
-        0
-      ],
-      "mask": [
-        "586",
-        0
-      ]
-    },
-    "class_type": "DetailTransfer",
-    "_meta": {
-      "title": "Detail Transfer"
     }
   },
   "610": {
@@ -1304,209 +88,6 @@
       "title": "Convert Image to Mask"
     }
   },
-  "611": {
-    "inputs": {
-      "image1": [
-        "793",
-        0
-      ],
-      "image2": [
-        "606",
-        0
-      ]
-    },
-    "class_type": "ImageBatch",
-    "_meta": {
-      "title": "Batch Images"
-    }
-  },
-  "612": {
-    "inputs": {
-      "operation": "mean",
-      "images": [
-        "611",
-        0
-      ]
-    },
-    "class_type": "BatchAverageImage",
-    "_meta": {
-      "title": "Batch Average Image"
-    }
-  },
-  "613": {
-    "inputs": {
-      "inputcount": 6,
-      "Update inputs": null,
-      "image_1": [
-        "793",
-        0
-      ],
-      "image_2": [
-        "625",
-        0
-      ],
-      "image_3": [
-        "612",
-        0
-      ],
-      "image_4": [
-        "626",
-        0
-      ],
-      "image_5": [
-        "606",
-        0
-      ],
-      "image_6": [
-        "627",
-        0
-      ]
-    },
-    "class_type": "ImageBatchMulti",
-    "_meta": {
-      "title": "Image Batch Multi"
-    }
-  },
-  "614": {
-    "inputs": {
-      "select": [
-        "616",
-        0
-      ],
-      "images": [
-        "613",
-        0
-      ]
-    },
-    "class_type": "LayerUtility: BatchSelector",
-    "_meta": {
-      "title": "LayerUtility: Batch Selector"
-    }
-  },
-  "615": {
-    "inputs": {
-      "string": "0 1 2 3 4 5"
-    },
-    "class_type": "LayerUtility: String",
-    "_meta": {
-      "title": "restoration_choice"
-    }
-  },
-  "616": {
-    "inputs": {
-      "prompt": [
-        "615",
-        0
-      ],
-      "find1": "Normal",
-      "replace1": "0",
-      "find2": "Balance",
-      "replace2": "1",
-      "find3": "Original",
-      "replace3": "2"
-    },
-    "class_type": "easy promptReplace",
-    "_meta": {
-      "title": "PromptReplace"
-    }
-  },
-  "621": {
-    "inputs": {
-      "da_model": [
-        "634",
-        0
-      ],
-      "images": [
-        "789",
-        0
-      ]
-    },
-    "class_type": "DepthAnything_V2",
-    "_meta": {
-      "title": "Depth Anything V2"
-    }
-  },
-  "623": {
-    "inputs": {
-      "image1": [
-        "793",
-        0
-      ],
-      "image2": [
-        "612",
-        0
-      ]
-    },
-    "class_type": "ImageBatch",
-    "_meta": {
-      "title": "Batch Images"
-    }
-  },
-  "624": {
-    "inputs": {
-      "image1": [
-        "612",
-        0
-      ],
-      "image2": [
-        "606",
-        0
-      ]
-    },
-    "class_type": "ImageBatch",
-    "_meta": {
-      "title": "Batch Images"
-    }
-  },
-  "625": {
-    "inputs": {
-      "operation": "mean",
-      "images": [
-        "623",
-        0
-      ]
-    },
-    "class_type": "BatchAverageImage",
-    "_meta": {
-      "title": "Batch Average Image"
-    }
-  },
-  "626": {
-    "inputs": {
-      "operation": "mean",
-      "images": [
-        "624",
-        0
-      ]
-    },
-    "class_type": "BatchAverageImage",
-    "_meta": {
-      "title": "Batch Average Image"
-    }
-  },
-  "627": {
-    "inputs": {
-      "x": 0,
-      "y": 0,
-      "resize_source": false,
-      "destination": [
-        "793",
-        0
-      ],
-      "source": [
-        "789",
-        0
-      ],
-      "mask": [
-        "586",
-        0
-      ]
-    },
-    "class_type": "ImageCompositeMasked",
-    "_meta": {
-      "title": "ImageCompositeMasked"
-    }
-  },
   "634": {
     "inputs": {
       "model": "depth_anything_v2_vitl_fp16.safetensors"
@@ -1516,158 +97,21 @@
       "title": "DownloadAndLoadDepthAnythingV2Model"
     }
   },
-  "635": {
-    "inputs": {
-      "control_net_name": "controlnet++_canny_sd15_fp16.safetensors"
-    },
-    "class_type": "ControlNetLoader",
-    "_meta": {
-      "title": "Load ControlNet Model"
-    }
-  },
-  "638": {
-    "inputs": {
-      "control_net_name": "controlnet++_depth_sd15_fp16.safetensors"
-    },
-    "class_type": "ControlNetLoader",
-    "_meta": {
-      "title": "Load ControlNet Model"
-    }
-  },
-  "640": {
-    "inputs": {
-      "detect_hand": "enable",
-      "detect_body": "enable",
-      "detect_face": "disable",
-      "resolution": 512,
-      "scale_stick_for_xinsr_cn": "enable",
-      "image": [
-        "517",
-        0
-      ]
-    },
-    "class_type": "OpenposePreprocessor",
-    "_meta": {
-      "title": "OpenPose Pose"
-    }
-  },
-  "641": {
-    "inputs": {
-      "control_net_name": "control_v11p_sd15_openpose_fp16.safetensors"
-    },
-    "class_type": "ControlNetLoader",
-    "_meta": {
-      "title": "Load ControlNet Model"
-    }
-  },
-  "642": {
-    "inputs": {
-      "strength": 1,
-      "start_percent": 0,
-      "end_percent": 1,
-      "positive": [
-        "593",
-        0
-      ],
-      "negative": [
-        "593",
-        1
-      ],
-      "control_net": [
-        "641",
-        0
-      ],
-      "image": [
-        "640",
-        0
-      ]
-    },
-    "class_type": "ControlNetApplyAdvanced",
-    "_meta": {
-      "title": "Apply ControlNet"
-    }
-  },
-  "643": {
-    "inputs": {
-      "control_net_name": "control_v11p_sd15_inpaint_fp16.safetensors"
-    },
-    "class_type": "ControlNetLoader",
-    "_meta": {
-      "title": "Load ControlNet Model"
-    }
-  },
-  "644": {
-    "inputs": {
-      "strength": 0.2,
-      "start_percent": 0,
-      "end_percent": 0.55,
-      "positive": [
-        "592",
-        0
-      ],
-      "negative": [
-        "592",
-        1
-      ],
-      "control_net": [
-        "643",
-        0
-      ],
-      "image": [
-        "645",
-        0
-      ]
-    },
-    "class_type": "ControlNetApplyAdvanced",
-    "_meta": {
-      "title": "Apply ControlNet"
-    }
-  },
   "645": {
     "inputs": {
-      "black_pixel_for_xinsir_cn": true,
+      "black_pixel_for_xinsir_cn": false,
       "image": [
-        "517",
+        "1922",
         0
       ],
       "mask": [
-        "943",
+        "870",
         0
       ]
     },
     "class_type": "InpaintPreprocessor",
     "_meta": {
       "title": "Inpaint Preprocessor"
-    }
-  },
-  "646": {
-    "inputs": {
-      "seed": 391028774175490,
-      "steps": 20,
-      "cfg": 5,
-      "sampler_name": "dpmpp_sde_gpu",
-      "scheduler": "karras",
-      "denoise": 0.6,
-      "model": [
-        "597",
-        0
-      ],
-      "positive": [
-        "901",
-        0
-      ],
-      "negative": [
-        "901",
-        1
-      ],
-      "latent_image": [
-        "603",
-        0
-      ]
-    },
-    "class_type": "KSampler",
-    "_meta": {
-      "title": "KSampler"
     }
   },
   "648": {
@@ -1679,154 +123,15 @@
       "title": "Model Prompt"
     }
   },
-  "651": {
-    "inputs": {
-      "action": "append",
-      "tidy_tags": "no",
-      "text_a": [
-        "799",
-        0
-      ],
-      "text_b": [
-        "578",
-        0
-      ],
-      "text_c": ""
-    },
-    "class_type": "StringFunction|pysssss",
-    "_meta": {
-      "title": "String Function 🐍"
-    }
-  },
-  "659": {
-    "inputs": {
-      "guide_size": 512,
-      "guide_size_for": true,
-      "max_size": 1024,
-      "seed": 1074815645041518,
-      "steps": 20,
-      "cfg": 5,
-      "sampler_name": "dpmpp_2m_sde_gpu",
-      "scheduler": "karras",
-      "denoise": 0.5,
-      "feather": 5,
-      "noise_mask": true,
-      "force_inpaint": true,
-      "bbox_threshold": 0.5,
-      "bbox_dilation": 10,
-      "bbox_crop_factor": 3,
-      "sam_detection_hint": "center-1",
-      "sam_dilation": 0,
-      "sam_threshold": 0.93,
-      "sam_bbox_expansion": 0,
-      "sam_mask_hint_threshold": 0.7000000000000001,
-      "sam_mask_hint_use_negative": "False",
-      "drop_size": 10,
-      "wildcard": [
-        "648",
-        0
-      ],
-      "cycle": 1,
-      "inpaint_model": true,
-      "noise_mask_feather": 20,
-      "image": [
-        "604",
-        0
-      ],
-      "model": [
-        "597",
-        0
-      ],
-      "clip": [
-        "597",
-        1
-      ],
-      "vae": [
-        "584",
-        2
-      ],
-      "positive": [
-        "787",
-        0
-      ],
-      "negative": [
-        "788",
-        0
-      ],
-      "bbox_detector": [
-        "660",
-        0
-      ],
-      "sam_model_opt": [
-        "661",
-        0
-      ]
-    },
-    "class_type": "FaceDetailer",
-    "_meta": {
-      "title": "FaceDetailer"
-    }
-  },
-  "660": {
-    "inputs": {
-      "model_name": "bbox/face_yolov8m.pt"
-    },
-    "class_type": "UltralyticsDetectorProvider",
-    "_meta": {
-      "title": "UltralyticsDetectorProvider"
-    }
-  },
-  "661": {
-    "inputs": {
-      "model_name": "sam_vit_b_01ec64.pth",
-      "device_mode": "Prefer GPU"
-    },
-    "class_type": "SAMLoader",
-    "_meta": {
-      "title": "SAMLoader (Impact)"
-    }
-  },
-  "787": {
-    "inputs": {
-      "text": [
-        "648",
-        0
-      ],
-      "clip": [
-        "597",
-        1
-      ]
-    },
-    "class_type": "CLIPTextEncode",
-    "_meta": {
-      "title": "CLIP Text Encode (Prompt)"
-    }
-  },
-  "788": {
-    "inputs": {
-      "text": [
-        "581",
-        0
-      ],
-      "clip": [
-        "597",
-        1
-      ]
-    },
-    "class_type": "CLIPTextEncode",
-    "_meta": {
-      "title": "CLIP Text Encode (Prompt)"
-    }
-  },
   "789": {
     "inputs": {
       "image": [
-        "517",
+        "1383",
         0
       ],
       "alpha": [
-        "868",
-        0
+        "1846",
+        1
       ]
     },
     "class_type": "ICLightApplyMaskGrey",
@@ -1847,49 +152,16 @@
       "title": "Convert Image to Mask"
     }
   },
-  "793": {
-    "inputs": {
-      "switch": [
-        "794",
-        0
-      ],
-      "on_false": [
-        "604",
-        0
-      ],
-      "on_true": [
-        "659",
-        0
-      ]
-    },
-    "class_type": "InversionDemoLazySwitch",
-    "_meta": {
-      "title": "Lazy Switch"
-    }
-  },
-  "794": {
-    "inputs": {
-      "value": true
-    },
-    "class_type": "easy boolean",
-    "_meta": {
-      "title": "Boolean_FD"
-    }
-  },
   "799": {
     "inputs": {
       "action": "append",
       "tidy_tags": "no",
       "text_a": [
-        "648",
+        "1483",
         0
       ],
       "text_b": [
-        "800",
-        0
-      ],
-      "text_c": [
-        "578",
+        "1956",
         0
       ]
     },
@@ -1900,7 +172,7 @@
   },
   "800": {
     "inputs": {
-      "Text": ", in the background: "
+      "Text": " in the background: "
     },
     "class_type": "DF_Text_Box",
     "_meta": {
@@ -1973,7 +245,7 @@
       "device": "cuda",
       "max_megapixels": 2,
       "image": [
-        "517",
+        "1922",
         0
       ],
       "segformer_pipeline": [
@@ -1989,7 +261,7 @@
   "868": {
     "inputs": {
       "switch": [
-        "869",
+        "1319",
         0
       ],
       "on_false": [
@@ -2006,19 +278,10 @@
       "title": "Lazy Switch"
     }
   },
-  "869": {
-    "inputs": {
-      "value": true
-    },
-    "class_type": "easy boolean",
-    "_meta": {
-      "title": "Boolean_Auto_Mask"
-    }
-  },
   "870": {
     "inputs": {
       "mask": [
-        "586",
+        "1627",
         0
       ]
     },
@@ -2038,14 +301,1240 @@
       "title": "Load Image (Base64) Garment Mask"
     }
   },
-  "901": {
+  "1045": {
     "inputs": {
+      "detect_hand": "enable",
+      "detect_body": "enable",
+      "detect_face": "enable",
+      "resolution": 512,
+      "bbox_detector": "yolo_nas_l_fp16.onnx",
+      "pose_estimator": "dw-ll_ucoco_384.onnx",
+      "scale_stick_for_xinsr_cn": "disable",
+      "image": [
+        "1922",
+        0
+      ]
+    },
+    "class_type": "DWPreprocessor",
+    "_meta": {
+      "title": "DWPose Estimator"
+    }
+  },
+  "1222": {
+    "inputs": {
+      "size": "custom",
+      "custom_width": 1024,
+      "custom_height": 1024,
+      "color": [
+        "1223",
+        0
+      ],
+      "size_as": [
+        "1922",
+        0
+      ]
+    },
+    "class_type": "LayerUtility: ColorImage V2",
+    "_meta": {
+      "title": "LayerUtility: ColorImage V2"
+    }
+  },
+  "1223": {
+    "inputs": {
+      "color": "#212121",
+      "mode": "HEX"
+    },
+    "class_type": "LayerUtility: ColorPicker",
+    "_meta": {
+      "title": "LayerUtility: ColorPicker"
+    }
+  },
+  "1224": {
+    "inputs": {
+      "prompt": [
+        "1231",
+        0
+      ],
+      "find1": "profile",
+      "replace1": [
+        "1230",
+        0
+      ],
+      "find2": "diagonal",
+      "replace2": "0.2",
+      "find3": "high",
+      "replace3": "0.75"
+    },
+    "class_type": "easy promptReplace",
+    "_meta": {
+      "title": "PromptReplace"
+    }
+  },
+  "1225": {
+    "inputs": {
+      "prompt": [
+        "1224",
+        0
+      ],
+      "find1": "steep",
+      "replace1": "1",
+      "find2": "top",
+      "replace2": "0.001",
+      "find3": "original",
+      "replace3": "1"
+    },
+    "class_type": "easy promptReplace",
+    "_meta": {
+      "title": "PromptReplace"
+    }
+  },
+  "1226": {
+    "inputs": {
+      "output_type": "float",
+      "*": [
+        "1227",
+        0
+      ]
+    },
+    "class_type": "easy convertAnything",
+    "_meta": {
+      "title": "Convert Any"
+    }
+  },
+  "1227": {
+    "inputs": {
+      "list_values": [
+        "1225",
+        0
+      ]
+    },
+    "class_type": "CR Simple List",
+    "_meta": {
+      "title": "📜 CR Simple List"
+    }
+  },
+  "1228": {
+    "inputs": {
+      "detect": "mask_area",
+      "x_adjust": 0,
+      "y_adjust": 0,
+      "scale_adjust": 1,
+      "mask": [
+        "610",
+        0
+      ]
+    },
+    "class_type": "LayerMask: MaskBoxDetect",
+    "_meta": {
+      "title": "LayerMask: MaskBoxDetect"
+    }
+  },
+  "1229": {
+    "inputs": {
+      "output_type": "int",
+      "*": [
+        "1228",
+        4
+      ]
+    },
+    "class_type": "easy convertAnything",
+    "_meta": {
+      "title": "Convert Any"
+    }
+  },
+  "1230": {
+    "inputs": {
+      "output_type": "string",
+      "*": [
+        "1235",
+        0
+      ]
+    },
+    "class_type": "easy convertAnything",
+    "_meta": {
+      "title": "Convert Any"
+    }
+  },
+  "1231": {
+    "inputs": {
+      "Text": "diagonal"
+    },
+    "class_type": "DF_Text_Box",
+    "_meta": {
+      "title": "angle_choices"
+    }
+  },
+  "1232": {
+    "inputs": {
+      "width": [
+        "1311",
+        0
+      ],
+      "height": [
+        "1249",
+        0
+      ],
+      "start_color": "custom",
+      "end_color": "custom",
+      "gradient_distance": 1,
+      "linear_transition": 0.5,
+      "orientation": "vertical",
+      "start_color_hex": "#212121",
+      "end_color_hex": "#212121"
+    },
+    "class_type": "CR Color Gradient",
+    "_meta": {
+      "title": "🟨 CR Color Gradient"
+    }
+  },
+  "1233": {
+    "inputs": {
+      "size": "custom",
+      "custom_width": 512,
+      "custom_height": 512,
+      "angle": 0,
+      "start_color": "#212121",
+      "end_color": "#BFBFBF",
+      "size_as": [
+        "1232",
+        0
+      ]
+    },
+    "class_type": "LayerUtility: GradientImage V2",
+    "_meta": {
+      "title": "LayerUtility: GradientImage V2"
+    }
+  },
+  "1234": {
+    "inputs": {
+      "value": [
+        "1298",
+        0
+      ]
+    },
+    "class_type": "easy boolean",
+    "_meta": {
+      "title": "use_platform"
+    }
+  },
+  "1235": {
+    "inputs": {
+      "if_condition": [
+        "1234",
+        0
+      ],
+      "when_TRUE": [
+        "1250",
+        1
+      ],
+      "when_FALSE": [
+        "1251",
+        1
+      ]
+    },
+    "class_type": "LayerUtility: If ",
+    "_meta": {
+      "title": "LayerUtility: If"
+    }
+  },
+  "1243": {
+    "inputs": {
+      "switch": [
+        "1234",
+        0
+      ],
+      "on_false": [
+        "1232",
+        0
+      ],
+      "on_true": [
+        "1233",
+        0
+      ]
+    },
+    "class_type": "InversionDemoLazySwitch",
+    "_meta": {
+      "title": "Lazy Switch"
+    }
+  },
+  "1248": {
+    "inputs": {
+      "value": "100-a*100/2",
+      "a": [
+        "1226",
+        0
+      ]
+    },
+    "class_type": "SimpleMath+",
+    "_meta": {
+      "title": "🔧 Simple Math"
+    }
+  },
+  "1249": {
+    "inputs": {
+      "value": "c*a",
+      "a": [
+        "1226",
+        0
+      ],
+      "c": [
+        "1311",
+        1
+      ]
+    },
+    "class_type": "SimpleMath+",
+    "_meta": {
+      "title": "🔧 Simple Math"
+    }
+  },
+  "1250": {
+    "inputs": {
+      "value": "(100 - (a + (b/2)*100/c) + 10)/100",
+      "a": [
+        "1252",
+        0
+      ],
+      "b": [
+        "1229",
+        0
+      ],
+      "c": [
+        "1311",
+        1
+      ]
+    },
+    "class_type": "SimpleMath+",
+    "_meta": {
+      "title": "🔧 Simple Math"
+    }
+  },
+  "1251": {
+    "inputs": {
+      "value": "(100 - (a + (b/2)*100/c) + 5)/100",
+      "a": [
+        "1252",
+        0
+      ],
+      "b": [
+        "1229",
+        0
+      ],
+      "c": [
+        "1311",
+        1
+      ]
+    },
+    "class_type": "SimpleMath+",
+    "_meta": {
+      "title": "🔧 Simple Math"
+    }
+  },
+  "1252": {
+    "inputs": {
+      "output_type": "float",
+      "*": [
+        "1228",
+        2
+      ]
+    },
+    "class_type": "easy convertAnything",
+    "_meta": {
+      "title": "Convert Any"
+    }
+  },
+  "1255": {
+    "inputs": {
+      "invert_mask": false,
+      "blend_mode": "normal",
+      "opacity": 100,
+      "x_percent": 50,
+      "y_percent": [
+        "1248",
+        1
+      ],
+      "mirror": "None",
+      "scale": 1,
+      "aspect_ratio": 1,
+      "rotate": 0,
+      "transform_method": "lanczos",
+      "anti_aliasing": 0,
+      "background_image": [
+        "1222",
+        0
+      ],
+      "layer_image": [
+        "1243",
+        0
+      ]
+    },
+    "class_type": "LayerUtility: ImageBlendAdvance",
+    "_meta": {
+      "title": "LayerUtility: ImageBlendAdvance"
+    }
+  },
+  "1256": {
+    "inputs": {
+      "invert_mask": false,
+      "blend_mode": "normal",
+      "opacity": 100,
+      "background_image": [
+        "1255",
+        0
+      ],
+      "layer_image": [
+        "1383",
+        0
+      ],
+      "layer_mask": [
+        "1400",
+        0
+      ]
+    },
+    "class_type": "LayerUtility: ImageBlend",
+    "_meta": {
+      "title": "LayerUtility: ImageBlend"
+    }
+  },
+  "1282": {
+    "inputs": {
+      "detect": "mask_area",
+      "x_adjust": 0,
+      "y_adjust": 0,
+      "scale_adjust": 1,
+      "mask": [
+        "1406",
+        0
+      ]
+    },
+    "class_type": "LayerMask: MaskBoxDetect",
+    "_meta": {
+      "title": "LayerMask: MaskBoxDetect"
+    }
+  },
+  "1293": {
+    "inputs": {
+      "value": "a-b-c",
+      "a": [
+        "1295",
+        0
+      ],
+      "b": [
+        "1296",
+        0
+      ],
+      "c": [
+        "1297",
+        0
+      ]
+    },
+    "class_type": "SimpleMath+",
+    "_meta": {
+      "title": "🔧 Simple Math"
+    }
+  },
+  "1295": {
+    "inputs": {
+      "output_type": "int",
+      "*": [
+        "1311",
+        1
+      ]
+    },
+    "class_type": "easy convertAnything",
+    "_meta": {
+      "title": "Convert Any"
+    }
+  },
+  "1296": {
+    "inputs": {
+      "output_type": "int",
+      "*": [
+        "1282",
+        6
+      ]
+    },
+    "class_type": "easy convertAnything",
+    "_meta": {
+      "title": "Convert Any"
+    }
+  },
+  "1297": {
+    "inputs": {
+      "output_type": "int",
+      "*": [
+        "1282",
+        4
+      ]
+    },
+    "class_type": "easy convertAnything",
+    "_meta": {
+      "title": "Convert Any"
+    }
+  },
+  "1298": {
+    "inputs": {
+      "comparison": "a > b",
+      "a": [
+        "1293",
+        0
+      ],
+      "b": [
+        "1299",
+        0
+      ]
+    },
+    "class_type": "easy compare",
+    "_meta": {
+      "title": "Compare"
+    }
+  },
+  "1299": {
+    "inputs": {
+      "value": 10
+    },
+    "class_type": "easy int",
+    "_meta": {
+      "title": "Int"
+    }
+  },
+  "1311": {
+    "inputs": {
+      "image": [
+        "1922",
+        0
+      ]
+    },
+    "class_type": "GetImageSize+",
+    "_meta": {
+      "title": "🔧 Get Image Size"
+    }
+  },
+  "1314": {
+    "inputs": {
+      "image": [
+        "885",
+        0
+      ]
+    },
+    "class_type": "easy imageToBase64",
+    "_meta": {
+      "title": "Image To Base64"
+    }
+  },
+  "1319": {
+    "inputs": {
+      "comparison": "a == b",
+      "a": [
+        "1314",
+        0
+      ],
+      "b": [
+        "1321",
+        0
+      ]
+    },
+    "class_type": "easy compare",
+    "_meta": {
+      "title": "Compare"
+    }
+  },
+  "1321": {
+    "inputs": {
+      "value": "/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAgGBgcGBQgHBwcJCQgKDBQNDAsLDBkSEw8UHRofHh0aHBwgJC4nICIsIxwcKDcpLDAxNDQ0Hyc5PTgyPC4zNDL/2wBDAQkJCQwLDBgNDRgyIRwhMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjL/wAARCAAgACADASIAAhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSExBhJBUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6goOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3uLm6wsPExcbHyMnK0tPU1dbX2Nna4uPk5ebn6Onq8vP09fb3+Pn6/9oADAMBAAIRAxEAPwD5/ooooAKKKKACiiigAooooA//2Q=="
+    },
+    "class_type": "easy string",
+    "_meta": {
+      "title": "String"
+    }
+  },
+  "1355": {
+    "inputs": {
+      "x": 0,
+      "y": 0,
+      "resize_source": false,
+      "destination": [
+        "1357",
+        0
+      ],
+      "source": [
+        "1922",
+        0
+      ],
+      "mask": [
+        "1363",
+        0
+      ]
+    },
+    "class_type": "ImageCompositeMasked",
+    "_meta": {
+      "title": "ImageCompositeMasked"
+    }
+  },
+  "1357": {
+    "inputs": {
+      "width": [
+        "1311",
+        0
+      ],
+      "height": [
+        "1311",
+        1
+      ],
+      "red": 255,
+      "green": 255,
+      "blue": 255
+    },
+    "class_type": "Image Blank",
+    "_meta": {
+      "title": "Image Blank"
+    }
+  },
+  "1363": {
+    "inputs": {
+      "mask": [
+        "1783",
+        0
+      ]
+    },
+    "class_type": "InvertMask",
+    "_meta": {
+      "title": "InvertMask"
+    }
+  },
+  "1383": {
+    "inputs": {
+      "da_model": [
+        "634",
+        0
+      ],
+      "images": [
+        "1355",
+        0
+      ]
+    },
+    "class_type": "DepthAnything_V2",
+    "_meta": {
+      "title": "Depth Anything V2"
+    }
+  },
+  "1386": {
+    "inputs": {
+      "low_threshold": 0.1,
+      "high_threshold": 0.2,
+      "image": [
+        "1355",
+        0
+      ]
+    },
+    "class_type": "Canny",
+    "_meta": {
+      "title": "Canny"
+    }
+  },
+  "1396": {
+    "inputs": {
+      "mask1": [
+        "1398",
+        0
+      ],
+      "mask2": [
+        "1694",
+        0
+      ]
+    },
+    "class_type": "AddMask",
+    "_meta": {
+      "title": "Pixelwise(MASK + MASK)"
+    }
+  },
+  "1398": {
+    "inputs": {
+      "mask": [
+        "1406",
+        0
+      ]
+    },
+    "class_type": "InvertMask",
+    "_meta": {
+      "title": "InvertMask"
+    }
+  },
+  "1400": {
+    "inputs": {
+      "mask": [
+        "1396",
+        0
+      ]
+    },
+    "class_type": "InvertMask",
+    "_meta": {
+      "title": "InvertMask"
+    }
+  },
+  "1405": {
+    "inputs": {
+      "base64_data": "iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAQAAADZc7J/AAAAH0lEQVR42mNkoBAwjhowasCoAaMGjBowasCoAcPNAACOMAAhOO/A7wAAAABJRU5ErkJggg==",
+      "image_output": "Hide",
+      "save_prefix": "ComfyUI"
+    },
+    "class_type": "easy loadImageBase64",
+    "_meta": {
+      "title": "Load Image (Base64) RMBG Mask"
+    }
+  },
+  "1406": {
+    "inputs": {
+      "channel": "red",
+      "image": [
+        "1405",
+        0
+      ]
+    },
+    "class_type": "ImageToMask",
+    "_meta": {
+      "title": "Convert Image to Mask"
+    }
+  },
+  "1483": {
+    "inputs": {
+      "action": "append",
+      "tidy_tags": "no",
+      "text_a": [
+        "648",
+        0
+      ],
+      "text_b": [
+        "800",
+        0
+      ],
+      "text_c": [
+        "578",
+        0
+      ]
+    },
+    "class_type": "StringFunction|pysssss",
+    "_meta": {
+      "title": "String Function 🐍"
+    }
+  },
+  "1525": {
+    "inputs": {
+      "control_type": "depth",
+      "image": [
+        "1256",
+        0
+      ]
+    },
+    "class_type": "ACN_ControlNet++InputNode",
+    "_meta": {
+      "title": "ControlNet++ Input 🛂🅐🅒🅝"
+    }
+  },
+  "1526": {
+    "inputs": {
+      "name": "controlnet-union-sdxl-1.0.promax.safetensors",
+      "plus_input": [
+        "1532",
+        0
+      ]
+    },
+    "class_type": "ACN_ControlNet++LoaderAdvanced",
+    "_meta": {
+      "title": "Load ControlNet++ Model (Multi) 🛂🅐🅒🅝"
+    }
+  },
+  "1532": {
+    "inputs": {
+      "control_type": "canny/lineart/mlsd",
+      "image": [
+        "1386",
+        0
+      ],
+      "prev_plus_input": [
+        "1533",
+        0
+      ]
+    },
+    "class_type": "ACN_ControlNet++InputNode",
+    "_meta": {
+      "title": "ControlNet++ Input 🛂🅐🅒🅝"
+    }
+  },
+  "1533": {
+    "inputs": {
+      "control_type": "openpose",
+      "image": [
+        "1045",
+        0
+      ],
+      "prev_plus_input": [
+        "1543",
+        0
+      ]
+    },
+    "class_type": "ACN_ControlNet++InputNode",
+    "_meta": {
+      "title": "ControlNet++ Input 🛂🅐🅒🅝"
+    }
+  },
+  "1537": {
+    "inputs": {
+      "seed": [
+        "594",
+        0
+      ],
+      "steps": 6,
+      "cfg": 2,
+      "sampler_name": "dpmpp_sde_gpu",
+      "scheduler": "karras",
+      "denoise": 1,
+      "model": [
+        "1940",
+        0
+      ],
       "positive": [
-        "644",
+        "1624",
         0
       ],
       "negative": [
-        "644",
+        "1624",
+        1
+      ],
+      "latent_image": [
+        "1624",
+        2
+      ]
+    },
+    "class_type": "KSampler",
+    "_meta": {
+      "title": "KSampler"
+    }
+  },
+  "1543": {
+    "inputs": {
+      "control_type": "inpaint/outpaint",
+      "image": [
+        "1545",
+        0
+      ],
+      "prev_plus_input": [
+        "1525",
+        0
+      ]
+    },
+    "class_type": "ACN_ControlNet++InputNode",
+    "_meta": {
+      "title": "ControlNet++ Input 🛂🅐🅒🅝"
+    }
+  },
+  "1545": {
+    "inputs": {
+      "fill_background": false,
+      "background_color": "#000000",
+      "RGBA_image": [
+        "645",
+        0
+      ],
+      "mask": [
+        "870",
+        0
+      ]
+    },
+    "class_type": "LayerUtility: ImageRemoveAlpha",
+    "_meta": {
+      "title": "LayerUtility: ImageRemoveAlpha"
+    }
+  },
+  "1573": {
+    "inputs": {
+      "invert_mask": false,
+      "blend_mode": "normal",
+      "opacity": 100,
+      "background_image": [
+        "1586",
+        0
+      ],
+      "layer_image": [
+        "1922",
+        0
+      ],
+      "layer_mask": [
+        "586",
+        0
+      ]
+    },
+    "class_type": "LayerUtility: ImageBlend",
+    "_meta": {
+      "title": "LayerUtility: ImageBlend"
+    }
+  },
+  "1574": {
+    "inputs": {
+      "blur_type": "guidedFilter",
+      "blur_size": 12,
+      "factor": 10,
+      "images": [
+        "1586",
+        0
+      ],
+      "reference": [
+        "1573",
+        0
+      ]
+    },
+    "class_type": "ColorMatchImage",
+    "_meta": {
+      "title": "Color Match Image"
+    }
+  },
+  "1575": {
+    "inputs": {
+      "invert_mask": true,
+      "blend_mode": "normal",
+      "opacity": 70,
+      "background_image": [
+        "1574",
+        0
+      ],
+      "layer_image": [
+        "1573",
+        0
+      ],
+      "layer_mask": [
+        "586",
+        0
+      ]
+    },
+    "class_type": "LayerUtility: ImageBlend V2",
+    "_meta": {
+      "title": "LayerUtility: ImageBlend V2"
+    }
+  },
+  "1576": {
+    "inputs": {
+      "mode": "add",
+      "blur_sigma": 3,
+      "blend_factor": 0.9470000000000001,
+      "target": [
+        "1575",
+        0
+      ],
+      "source": [
+        "1573",
+        0
+      ],
+      "mask": [
+        "586",
+        0
+      ]
+    },
+    "class_type": "DetailTransfer",
+    "_meta": {
+      "title": "Detail Transfer"
+    }
+  },
+  "1582": {
+    "inputs": {
+      "strength": 0.8,
+      "start_percent": 0,
+      "end_percent": 0.8,
+      "positive": [
+        "1597",
+        0
+      ],
+      "negative": [
+        "1598",
+        0
+      ],
+      "control_net": [
+        "1583",
+        0
+      ],
+      "image": [
+        "1596",
+        0
+      ]
+    },
+    "class_type": "ControlNetApplyAdvanced",
+    "_meta": {
+      "title": "Apply ControlNet"
+    }
+  },
+  "1583": {
+    "inputs": {
+      "control_net_name": "control_sd15_inpaint_depth_hand_fp16.safetensors"
+    },
+    "class_type": "ControlNetLoader",
+    "_meta": {
+      "title": "Load ControlNet Model"
+    }
+  },
+  "1584": {
+    "inputs": {
+      "samples": [
+        "1851",
+        0
+      ],
+      "mask": [
+        "1596",
+        1
+      ]
+    },
+    "class_type": "SetLatentNoiseMask",
+    "_meta": {
+      "title": "Set Latent Noise Mask"
+    }
+  },
+  "1585": {
+    "inputs": {
+      "samples": [
+        "1613",
+        0
+      ],
+      "vae": [
+        "1636",
+        2
+      ]
+    },
+    "class_type": "VAEDecode",
+    "_meta": {
+      "title": "VAE Decode"
+    }
+  },
+  "1586": {
+    "inputs": {
+      "switch": [
+        "1615",
+        0
+      ],
+      "on_false": [
+        "1609",
+        0
+      ],
+      "on_true": [
+        "1585",
+        0
+      ]
+    },
+    "class_type": "InversionDemoLazySwitch",
+    "_meta": {
+      "title": "Lazy Switch"
+    }
+  },
+  "1594": {
+    "inputs": {
+      "model_name": "bbox/hand_yolov8s.pt"
+    },
+    "class_type": "UltralyticsDetectorProvider",
+    "_meta": {
+      "title": "UltralyticsDetectorProvider"
+    }
+  },
+  "1596": {
+    "inputs": {
+      "bbox_threshold": 0.5,
+      "bbox_dilation": 10,
+      "bbox_crop_factor": 3,
+      "drop_size": 10,
+      "mask_bbox_padding": 30,
+      "mask_type": "based_on_depth",
+      "mask_expand": 5,
+      "rand_seed": 88,
+      "resolution": 512,
+      "image": [
+        "1922",
+        0
+      ],
+      "bbox_detector": [
+        "1594",
+        0
+      ]
+    },
+    "class_type": "MeshGraphormer+ImpactDetector-DepthMapPreprocessor",
+    "_meta": {
+      "title": "MeshGraphormer Hand Refiner With External Detector"
+    }
+  },
+  "1597": {
+    "inputs": {
+      "text": "fine hands",
+      "clip": [
+        "1636",
+        1
+      ]
+    },
+    "class_type": "CLIPTextEncode",
+    "_meta": {
+      "title": "CLIP Text Encode (Prompt)"
+    }
+  },
+  "1598": {
+    "inputs": {
+      "text": "cartoon, painting, illustration, (worst quality, low quality, normal quality:2), bad anatomy, wrong anatomy, extra limb, missing limb, floating limbs, hands",
+      "clip": [
+        "1636",
+        1
+      ]
+    },
+    "class_type": "CLIPTextEncode",
+    "_meta": {
+      "title": "CLIP Text Encode (Prompt)"
+    }
+  },
+  "1604": {
+    "inputs": {
+      "value": 0.3
+    },
+    "class_type": "easy float",
+    "_meta": {
+      "title": "Float"
+    }
+  },
+  "1607": {
+    "inputs": {
+      "model_name": "sam_vit_b_01ec64.pth",
+      "device_mode": "Prefer GPU"
+    },
+    "class_type": "SAMLoader",
+    "_meta": {
+      "title": "SAMLoader (Impact)"
+    }
+  },
+  "1609": {
+    "inputs": {
+      "guide_size": 512,
+      "guide_size_for": true,
+      "max_size": 1024,
+      "seed": [
+        "594",
+        0
+      ],
+      "steps": 6,
+      "cfg": 1,
+      "sampler_name": "dpmpp_sde_gpu",
+      "scheduler": "karras",
+      "denoise": [
+        "1950",
+        0
+      ],
+      "feather": 5,
+      "noise_mask": false,
+      "force_inpaint": true,
+      "bbox_threshold": 0.5,
+      "bbox_dilation": 10,
+      "bbox_crop_factor": 3,
+      "sam_detection_hint": "center-1",
+      "sam_dilation": 0,
+      "sam_threshold": 0.93,
+      "sam_bbox_expansion": 0,
+      "sam_mask_hint_threshold": 0.7000000000000001,
+      "sam_mask_hint_use_negative": "False",
+      "drop_size": 10,
+      "wildcard": [
+        "1957",
+        0
+      ],
+      "cycle": 1,
+      "inpaint_model": true,
+      "noise_mask_feather": 20,
+      "image": [
+        "1948",
+        0
+      ],
+      "model": [
+        "1940",
+        0
+      ],
+      "clip": [
+        "1966",
+        1
+      ],
+      "vae": [
+        "584",
+        2
+      ],
+      "positive": [
+        "1938",
+        0
+      ],
+      "negative": [
+        "1939",
+        0
+      ],
+      "bbox_detector": [
+        "1611",
+        0
+      ],
+      "sam_model_opt": [
+        "1607",
+        0
+      ]
+    },
+    "class_type": "FaceDetailer",
+    "_meta": {
+      "title": "FaceDetailer"
+    }
+  },
+  "1611": {
+    "inputs": {
+      "model_name": "bbox/face_yolov8m.pt"
+    },
+    "class_type": "UltralyticsDetectorProvider",
+    "_meta": {
+      "title": "UltralyticsDetectorProvider"
+    }
+  },
+  "1613": {
+    "inputs": {
+      "seed": [
+        "594",
+        0
+      ],
+      "steps": 20,
+      "cfg": 5,
+      "sampler_name": "dpmpp_2m_sde_gpu",
+      "scheduler": "karras",
+      "denoise": 0.8,
+      "model": [
+        "1636",
+        0
+      ],
+      "positive": [
+        "1582",
+        0
+      ],
+      "negative": [
+        "1582",
+        1
+      ],
+      "latent_image": [
+        "1584",
+        0
+      ]
+    },
+    "class_type": "KSampler",
+    "_meta": {
+      "title": "KSampler"
+    }
+  },
+  "1615": {
+    "inputs": {
+      "value": false
+    },
+    "class_type": "easy boolean",
+    "_meta": {
+      "title": "Boolean_HD"
+    }
+  },
+  "1624": {
+    "inputs": {
+      "noise_mask": true,
+      "positive": [
+        "1666",
+        0
+      ],
+      "negative": [
+        "1666",
         1
       ],
       "vae": [
@@ -2053,7 +1542,7 @@
         2
       ],
       "pixels": [
-        "517",
+        "1922",
         0
       ],
       "mask": [
@@ -2066,18 +1555,683 @@
       "title": "InpaintModelConditioning"
     }
   },
-  "914": {
+  "1627": {
     "inputs": {
-      "image_from": [
-        "621",
+      "invert_mask": false,
+      "grow": -2,
+      "blur": 0,
+      "mask": [
+        "586",
+        0
+      ]
+    },
+    "class_type": "LayerMask: MaskGrow",
+    "_meta": {
+      "title": "LayerMask: MaskGrow"
+    }
+  },
+  "1636": {
+    "inputs": {
+      "ckpt_name": "epicphotogasm.safetensors"
+    },
+    "class_type": "CheckpointLoaderSimple",
+    "_meta": {
+      "title": "Load Checkpoint"
+    }
+  },
+  "1658": {
+    "inputs": {
+      "mode": "polygon",
+      "skin": "rgb(255, 255, 255)",
+      "left_eye": "rgb(255, 255, 255)",
+      "right_eye": "rgb(255, 255, 255)",
+      "nose": "rgb(255, 255, 255)",
+      "upper_lip": "rgb(255, 255, 255)",
+      "inner_mouth": "rgb(255, 255, 255)",
+      "lower_lip": "rgb(255, 255, 255)",
+      "pose_kps": [
+        "1045",
+        1
+      ]
+    },
+    "class_type": "FacialPartColoringFromPoseKps",
+    "_meta": {
+      "title": "Colorize Facial Parts from PoseKPS"
+    }
+  },
+  "1662": {
+    "inputs": {
+      "channel": "red",
+      "image": [
+        "1658",
+        0
+      ]
+    },
+    "class_type": "ImageToMask",
+    "_meta": {
+      "title": "Convert Image to Mask"
+    }
+  },
+  "1666": {
+    "inputs": {
+      "strength": 0.6,
+      "start_percent": 0,
+      "end_percent": 1,
+      "positive": [
+        "1938",
         0
       ],
-      "image_to": [
-        "915",
+      "negative": [
+        "1939",
+        0
+      ],
+      "control_net": [
+        "1526",
+        0
+      ],
+      "image": [
+        "1526",
+        1
+      ]
+    },
+    "class_type": "ACN_AdvancedControlNetApply_v2",
+    "_meta": {
+      "title": "Apply Advanced ControlNet 🛂🅐🅒🅝"
+    }
+  },
+  "1681": {
+    "inputs": {
+      "expand": 110,
+      "tapered_corners": true,
+      "mask": [
+        "1662",
+        0
+      ]
+    },
+    "class_type": "GrowMask",
+    "_meta": {
+      "title": "GrowMask"
+    }
+  },
+  "1694": {
+    "inputs": {
+      "switch": [
+        "1695",
+        0
+      ],
+      "on_false": [
+        "1681",
+        0
+      ],
+      "on_true": [
+        "1776",
+        0
+      ]
+    },
+    "class_type": "InversionDemoLazySwitch",
+    "_meta": {
+      "title": "Lazy Switch"
+    }
+  },
+  "1695": {
+    "inputs": {
+      "comparison": "a > b",
+      "a": [
+        "1779",
+        5
+      ],
+      "b": [
+        "1696",
+        0
+      ]
+    },
+    "class_type": "easy compare",
+    "_meta": {
+      "title": "Compare"
+    }
+  },
+  "1696": {
+    "inputs": {
+      "value": 0
+    },
+    "class_type": "easy int",
+    "_meta": {
+      "title": "Int"
+    }
+  },
+  "1721": {
+    "inputs": {
+      "instantid_file": "ip-adapter.bin"
+    },
+    "class_type": "InstantID_IPA_ModelLoader",
+    "_meta": {
+      "title": "Load InstantID Ipa Model (EcomID)"
+    }
+  },
+  "1722": {
+    "inputs": {
+      "pulid_file": "ip-adapter_pulid_sdxl_fp16.safetensors"
+    },
+    "class_type": "EcomID_PulidModelLoader",
+    "_meta": {
+      "title": "Load PuLID Model (EcomID)"
+    }
+  },
+  "1723": {
+    "inputs": {},
+    "class_type": "EcomIDEvaClipLoader",
+    "_meta": {
+      "title": "Load Eva Clip (EcomID)"
+    }
+  },
+  "1724": {
+    "inputs": {
+      "provider": "CUDA"
+    },
+    "class_type": "EcomIDFaceAnalysis",
+    "_meta": {
+      "title": "EcomID Face Analysis"
+    }
+  },
+  "1725": {
+    "inputs": {
+      "control_net_name": "controlnet_ecomid_sdxl.safetensors"
+    },
+    "class_type": "ControlNetLoader",
+    "_meta": {
+      "title": "Load ControlNet Model"
+    }
+  },
+  "1750": {
+    "inputs": {
+      "method": "neutral",
+      "start_at": 0,
+      "end_at": 1,
+      "ip_weight": 0.3,
+      "cn_strength": 1,
+      "noise": 0,
+      "combine_embeds": "concat",
+      "instantid_ipa": [
+        "1721",
+        0
+      ],
+      "pulid": [
+        "1722",
+        0
+      ],
+      "eva_clip": [
+        "1723",
+        0
+      ],
+      "insightface": [
+        "1724",
+        0
+      ],
+      "control_net": [
+        "1725",
+        0
+      ],
+      "image": [
+        "1952",
+        0
+      ],
+      "model": [
+        "1966",
+        0
+      ],
+      "positive": [
+        "1953",
+        0
+      ],
+      "negative": [
+        "1954",
+        0
+      ],
+      "image_kps": [
+        "1922",
+        0
+      ]
+    },
+    "class_type": "ApplyEcomIDAdvanced",
+    "_meta": {
+      "title": "Apply EcomID Advanced"
+    }
+  },
+  "1771": {
+    "inputs": {
+      "Text": "38mm, Fujifilm XT3, skin textures, high resolution"
+    },
+    "class_type": "DF_Text_Box",
+    "_meta": {
+      "title": "Text Box"
+    }
+  },
+  "1775": {
+    "inputs": {
+      "face": false,
+      "hair": true,
+      "body": false,
+      "clothes": false,
+      "accessories": false,
+      "background": false,
+      "confidence": 0.4,
+      "detail_method": "GuidedFilter",
+      "detail_erode": 6,
+      "detail_dilate": 6,
+      "black_point": 0.01,
+      "white_point": 0.99,
+      "process_detail": true,
+      "device": "cuda",
+      "max_megapixels": 2,
+      "images": [
+        "1922",
+        0
+      ]
+    },
+    "class_type": "LayerMask: PersonMaskUltra V2",
+    "_meta": {
+      "title": "LayerMask: PersonMaskUltra V2"
+    }
+  },
+  "1776": {
+    "inputs": {
+      "expand": 15,
+      "tapered_corners": false,
+      "mask": [
+        "1775",
+        1
+      ]
+    },
+    "class_type": "GrowMask",
+    "_meta": {
+      "title": "GrowMask"
+    }
+  },
+  "1779": {
+    "inputs": {
+      "detect": "min_bounding_rect",
+      "x_adjust": 0,
+      "y_adjust": 0,
+      "scale_adjust": 1,
+      "mask": [
+        "1775",
+        1
+      ]
+    },
+    "class_type": "LayerMask: MaskBoxDetect",
+    "_meta": {
+      "title": "LayerMask: MaskBoxDetect"
+    }
+  },
+  "1783": {
+    "inputs": {
+      "mask1": [
+        "1694",
+        0
+      ],
+      "mask2": [
+        "586",
+        0
+      ]
+    },
+    "class_type": "SubtractMask",
+    "_meta": {
+      "title": "Pixelwise(MASK - MASK)"
+    }
+  },
+  "1846": {
+    "inputs": {
+      "method": "VITMatte",
+      "mask_grow": 0,
+      "fix_gap": 0,
+      "fix_threshold": 0.2,
+      "edge_erode": 6,
+      "edte_dilate": 6,
+      "black_point": 0.01,
+      "white_point": 0.99,
+      "device": "cuda",
+      "max_megapixels": 2,
+      "image": [
+        "1922",
         0
       ],
       "mask": [
-        "918",
+        "868",
+        0
+      ]
+    },
+    "class_type": "LayerMask: MaskEdgeUltraDetail V2",
+    "_meta": {
+      "title": "LayerMask: MaskEdgeUltraDetail V2"
+    }
+  },
+  "1851": {
+    "inputs": {
+      "pixels": [
+        "1609",
+        0
+      ],
+      "vae": [
+        "1636",
+        2
+      ]
+    },
+    "class_type": "VAEEncode",
+    "_meta": {
+      "title": "VAE Encode"
+    }
+  },
+  "1854": {
+    "inputs": {
+      "black_threshold": 0,
+      "white_threshold": 127,
+      "masks": [
+        "1846",
+        1
+      ]
+    },
+    "class_type": "Mask Threshold Region",
+    "_meta": {
+      "title": "Mask Threshold Region"
+    }
+  },
+  "1857": {
+    "inputs": {
+      "enabled": true,
+      "swap_model": "inswapper_128.onnx",
+      "facedetection": "retinaface_resnet50",
+      "face_restore_model": "GPEN-BFR-1024.onnx",
+      "face_restore_visibility": 1,
+      "codeformer_weight": 0.5,
+      "detect_gender_input": "no",
+      "detect_gender_source": "no",
+      "input_faces_index": "0",
+      "source_faces_index": "0",
+      "console_log_level": 1,
+      "input_image": [
+        "1965",
+        0
+      ],
+      "source_image": [
+        "1952",
+        0
+      ],
+      "face_boost": [
+        "1858",
+        0
+      ]
+    },
+    "class_type": "ReActorFaceSwap",
+    "_meta": {
+      "title": "ReActor 🌌 Fast Face Swap"
+    }
+  },
+  "1858": {
+    "inputs": {
+      "enabled": true,
+      "boost_model": "GPEN-BFR-1024.onnx",
+      "interpolation": "Bicubic",
+      "visibility": 0.5,
+      "codeformer_weight": 0.5,
+      "restore_with_main_after": false
+    },
+    "class_type": "ReActorFaceBoost",
+    "_meta": {
+      "title": "ReActor 🌌 Face Booster"
+    }
+  },
+  "1864": {
+    "inputs": {
+      "base64_data": "iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAQAAADZc7J/AAAAH0lEQVR42mNkoBAwjhowasCoAaMGjBowasCoAcPNAACOMAAhOO/A7wAAAABJRU5ErkJggg==",
+      "image_output": "Hide",
+      "save_prefix": "ComfyUI"
+    },
+    "class_type": "easy loadImageBase64",
+    "_meta": {
+      "title": "Load Image (Base64)"
+    }
+  },
+  "1865": {
+    "inputs": {
+      "filename_prefix": "Image",
+      "images": [
+        "1866",
+        0
+      ]
+    },
+    "class_type": "SaveImage",
+    "_meta": {
+      "title": "Save Image"
+    }
+  },
+  "1866": {
+    "inputs": {
+      "index": [
+        "1868",
+        0
+      ],
+      "value0": [
+        "1912",
+        0
+      ],
+      "value1": [
+        "1918",
+        0
+      ],
+      "value2": [
+        "1888",
+        0
+      ],
+      "value3": [
+        "1903",
+        0
+      ],
+      "value4": [
+        "1926",
+        0
+      ]
+    },
+    "class_type": "InversionDemoLazyIndexSwitch",
+    "_meta": {
+      "title": "output_select"
+    }
+  },
+  "1867": {
+    "inputs": {
+      "switch": [
+        "1869",
+        0
+      ],
+      "on_false": [
+        "1870",
+        0
+      ],
+      "on_true": [
+        "1864",
+        0
+      ]
+    },
+    "class_type": "InversionDemoLazySwitch",
+    "_meta": {
+      "title": "Lazy Switch"
+    }
+  },
+  "1868": {
+    "inputs": {
+      "value": 0
+    },
+    "class_type": "easy int",
+    "_meta": {
+      "title": "Selected_Workflow"
+    }
+  },
+  "1869": {
+    "inputs": {
+      "comparison": "a == b",
+      "a": [
+        "1868",
+        0
+      ],
+      "b": [
+        "1871",
+        0
+      ]
+    },
+    "class_type": "easy compare",
+    "_meta": {
+      "title": "Compare"
+    }
+  },
+  "1870": {
+    "inputs": {
+      "base64_data": "iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAQAAADZc7J/AAAAH0lEQVR42mNkoBAwjhowasCoAaMGjBowasCoAcPNAACOMAAhOO/A7wAAAABJRU5ErkJggg==",
+      "image_output": "Hide",
+      "save_prefix": "ComfyUI"
+    },
+    "class_type": "easy loadImageBase64",
+    "_meta": {
+      "title": "Empty"
+    }
+  },
+  "1871": {
+    "inputs": {
+      "value": 0
+    },
+    "class_type": "easy int",
+    "_meta": {
+      "title": "Upscale"
+    }
+  },
+  "1872": {
+    "inputs": {
+      "value": 1
+    },
+    "class_type": "easy int",
+    "_meta": {
+      "title": "WhiteBG"
+    }
+  },
+  "1873": {
+    "inputs": {
+      "value": 2
+    },
+    "class_type": "easy int",
+    "_meta": {
+      "title": "Segmentation"
+    }
+  },
+  "1874": {
+    "inputs": {
+      "value": 4
+    },
+    "class_type": "easy int",
+    "_meta": {
+      "title": "ChangeBG"
+    }
+  },
+  "1875": {
+    "inputs": {
+      "comparison": "a == b",
+      "a": [
+        "1868",
+        0
+      ],
+      "b": [
+        "1872",
+        0
+      ]
+    },
+    "class_type": "easy compare",
+    "_meta": {
+      "title": "Compare"
+    }
+  },
+  "1876": {
+    "inputs": {
+      "comparison": "a == b",
+      "a": [
+        "1868",
+        0
+      ],
+      "b": [
+        "1873",
+        0
+      ]
+    },
+    "class_type": "easy compare",
+    "_meta": {
+      "title": "Compare"
+    }
+  },
+  "1877": {
+    "inputs": {
+      "comparison": "a == b",
+      "a": [
+        "1868",
+        0
+      ],
+      "b": [
+        "1874",
+        0
+      ]
+    },
+    "class_type": "easy compare",
+    "_meta": {
+      "title": "Compare"
+    }
+  },
+  "1878": {
+    "inputs": {
+      "switch": [
+        "1875",
+        0
+      ],
+      "on_false": [
+        "1870",
+        0
+      ],
+      "on_true": [
+        "1864",
+        0
+      ]
+    },
+    "class_type": "InversionDemoLazySwitch",
+    "_meta": {
+      "title": "Lazy Switch"
+    }
+  },
+  "1879": {
+    "inputs": {
+      "switch": [
+        "1876",
+        0
+      ],
+      "on_false": [
+        "1870",
+        0
+      ],
+      "on_true": [
+        "1864",
+        0
+      ]
+    },
+    "class_type": "InversionDemoLazySwitch",
+    "_meta": {
+      "title": "Lazy Switch"
+    }
+  },
+  "1880": {
+    "inputs": {
+      "image_from": [
+        "1921",
+        0
+      ],
+      "image_to": [
+        "1881",
+        0
+      ],
+      "mask": [
+        "1883",
         0
       ]
     },
@@ -2086,29 +2240,29 @@
       "title": "🔧 Image Composite From Mask Batch"
     }
   },
-  "915": {
+  "1881": {
     "inputs": {
       "width": [
-        "917",
+        "1882",
         4
       ],
       "height": [
-        "917",
+        "1882",
         5
       ],
-      "red": 0,
-      "green": 0,
-      "blue": 0
+      "red": 255,
+      "green": 255,
+      "blue": 255
     },
     "class_type": "Image Blank",
     "_meta": {
       "title": "Image Blank"
     }
   },
-  "917": {
+  "1882": {
     "inputs": {
       "image": [
-        "621",
+        "1921",
         0
       ]
     },
@@ -2117,11 +2271,11 @@
       "title": "Image Size to Number"
     }
   },
-  "918": {
+  "1883": {
     "inputs": {
       "mask": [
-        "868",
-        0
+        "1884",
+        1
       ]
     },
     "class_type": "InvertMask",
@@ -2129,34 +2283,1009 @@
       "title": "InvertMask"
     }
   },
-  "943": {
+  "1884": {
     "inputs": {
-      "black_threshold": 75,
-      "white_threshold": 175,
-      "masks": [
-        "868",
+      "detail_method": "GuidedFilter",
+      "detail_erode": 4,
+      "detail_dilate": 2,
+      "black_point": 0.01,
+      "white_point": 0.99,
+      "process_detail": false,
+      "device": "cuda",
+      "max_megapixels": 2,
+      "image": [
+        "1921",
+        0
+      ],
+      "birefnet_model": [
+        "1885",
         0
       ]
     },
-    "class_type": "Mask Threshold Region",
+    "class_type": "LayerMask: BiRefNetUltraV2",
     "_meta": {
-      "title": "Mask Threshold Region"
+      "title": "LayerMask: BiRefNet Ultra V2"
     }
   },
-  "966": {
+  "1885": {
     "inputs": {
-      "samples": [
-        "603",
+      "model": "BiRefNet-general-epoch_244.pth"
+    },
+    "class_type": "LayerMask: LoadBiRefNetModel",
+    "_meta": {
+      "title": "LayerMask: Load BiRefNet Model"
+    }
+  },
+  "1886": {
+    "inputs": {
+      "model": "sam2_hiera_large.safetensors",
+      "segmentor": "automaskgenerator",
+      "device": "cuda",
+      "precision": "fp16"
+    },
+    "class_type": "DownloadAndLoadSAM2Model",
+    "_meta": {
+      "title": "(Down)Load SAM2Model"
+    }
+  },
+  "1887": {
+    "inputs": {
+      "min_pixels": 5,
+      "max_count": 30,
+      "color_map": [
+        "1889",
+        1
+      ]
+    },
+    "class_type": "ColorMapToMasks //Inspire",
+    "_meta": {
+      "title": "Color Map To Masks (Inspire)"
+    }
+  },
+  "1888": {
+    "inputs": {
+      "mask": [
+        "1887",
+        0
+      ]
+    },
+    "class_type": "MaskToImage",
+    "_meta": {
+      "title": "Convert Mask to Image"
+    }
+  },
+  "1889": {
+    "inputs": {
+      "points_per_side": 64,
+      "points_per_batch": 128,
+      "pred_iou_thresh": 0.7000000000000001,
+      "stability_score_thresh": 0.92,
+      "stability_score_offset": 0.7000000000000001,
+      "mask_threshold": 0,
+      "crop_n_layers": 0,
+      "box_nms_thresh": 0.7000000000000001,
+      "crop_nms_thresh": 0.7000000000000001,
+      "crop_overlap_ratio": 0.34,
+      "crop_n_points_downscale_factor": 1,
+      "min_mask_region_area": 0,
+      "use_m2m": true,
+      "keep_model_loaded": true,
+      "sam2_model": [
+        "1886",
+        0
+      ],
+      "image": [
+        "1879",
+        0
+      ]
+    },
+    "class_type": "Sam2AutoSegmentation",
+    "_meta": {
+      "title": "Sam2AutoSegmentation"
+    }
+  },
+  "1890": {
+    "inputs": {
+      "value": 3
+    },
+    "class_type": "easy int",
+    "_meta": {
+      "title": "Detection"
+    }
+  },
+  "1891": {
+    "inputs": {
+      "comparison": "a == b",
+      "a": [
+        "1868",
+        0
+      ],
+      "b": [
+        "1890",
+        0
+      ]
+    },
+    "class_type": "easy compare",
+    "_meta": {
+      "title": "Compare"
+    }
+  },
+  "1892": {
+    "inputs": {
+      "switch": [
+        "1891",
+        0
+      ],
+      "on_false": [
+        "1870",
+        0
+      ],
+      "on_true": [
+        "1864",
+        0
+      ]
+    },
+    "class_type": "InversionDemoLazySwitch",
+    "_meta": {
+      "title": "Lazy Switch"
+    }
+  },
+  "1893": {
+    "inputs": {
+      "mask": [
+        "1909",
+        0
+      ]
+    },
+    "class_type": "MaskToImage",
+    "_meta": {
+      "title": "Convert Mask to Image"
+    }
+  },
+  "1894": {
+    "inputs": {
+      "batch": [
+        "1896",
+        1
+      ]
+    },
+    "class_type": "BatchCount+",
+    "_meta": {
+      "title": "🔧 Batch Count"
+    }
+  },
+  "1895": {
+    "inputs": {
+      "model": "CogFlorence-2.2-Large",
+      "precision": "fp16",
+      "attention": "sdpa"
+    },
+    "class_type": "Florence2ModelLoader",
+    "_meta": {
+      "title": "Florence2ModelLoader"
+    }
+  },
+  "1896": {
+    "inputs": {
+      "index": "",
+      "batch": false,
+      "data": [
+        "1907",
+        3
+      ]
+    },
+    "class_type": "Florence2toCoordinates",
+    "_meta": {
+      "title": "Florence2 Coordinates"
+    }
+  },
+  "1897": {
+    "inputs": {
+      "accumulation": [
+        "1900",
+        0
+      ]
+    },
+    "class_type": "AccumulationToListNode",
+    "_meta": {
+      "title": "Accumulation to List"
+    }
+  },
+  "1898": {
+    "inputs": {
+      "to_add": [
+        "1901",
+        1
+      ],
+      "accumulation": [
+        "1901",
+        2
+      ]
+    },
+    "class_type": "AccumulateNode",
+    "_meta": {
+      "title": "Accumulate"
+    }
+  },
+  "1899": {
+    "inputs": {
+      "index": [
+        "1902",
+        0
+      ],
+      "batch": false,
+      "data": [
+        "1907",
+        3
+      ]
+    },
+    "class_type": "Florence2toCoordinates",
+    "_meta": {
+      "title": "Florence2 Coordinates"
+    }
+  },
+  "1900": {
+    "inputs": {
+      "flow_control": [
+        "1901",
+        0
+      ],
+      "initial_value1": [
+        "1898",
+        0
+      ]
+    },
+    "class_type": "ForLoopClose",
+    "_meta": {
+      "title": "For Loop Close"
+    }
+  },
+  "1901": {
+    "inputs": {
+      "remaining": [
+        "1894",
+        0
+      ]
+    },
+    "class_type": "ForLoopOpen",
+    "_meta": {
+      "title": "For Loop Open"
+    }
+  },
+  "1902": {
+    "inputs": {
+      "int_": [
+        "1906",
+        0
+      ]
+    },
+    "class_type": "CR Integer To String",
+    "_meta": {
+      "title": "🔧 CR Integer To String"
+    }
+  },
+  "1903": {
+    "inputs": {
+      "switch": [
+        "1904",
+        0
+      ],
+      "on_false": [
+        "1893",
+        0
+      ],
+      "on_true": [
+        "1870",
+        0
+      ]
+    },
+    "class_type": "InversionDemoLazySwitch",
+    "_meta": {
+      "title": "Lazy Switch"
+    }
+  },
+  "1904": {
+    "inputs": {
+      "comparison": "a == b",
+      "a": [
+        "1894",
+        0
+      ],
+      "b": [
+        "1905",
+        0
+      ]
+    },
+    "class_type": "easy compare",
+    "_meta": {
+      "title": "Compare"
+    }
+  },
+  "1905": {
+    "inputs": {
+      "value": 0
+    },
+    "class_type": "easy int",
+    "_meta": {
+      "title": "Int"
+    }
+  },
+  "1906": {
+    "inputs": {
+      "a": [
+        "1897",
+        0
+      ],
+      "b": 1,
+      "operation": "subtract"
+    },
+    "class_type": "IntMathOperation",
+    "_meta": {
+      "title": "Int Math Operation"
+    }
+  },
+  "1907": {
+    "inputs": {
+      "text_input": "",
+      "task": "region_proposal",
+      "fill_mask": true,
+      "keep_model_loaded": true,
+      "max_new_tokens": 1024,
+      "num_beams": 10,
+      "do_sample": true,
+      "output_mask_select": "",
+      "seed": 1063907349169229,
+      "image": [
+        "1892",
+        0
+      ],
+      "florence2_model": [
+        "1895",
+        0
+      ]
+    },
+    "class_type": "Florence2Run",
+    "_meta": {
+      "title": "Florence2Run"
+    }
+  },
+  "1908": {
+    "inputs": {
+      "model": "sam2_hiera_large.safetensors",
+      "segmentor": "single_image",
+      "device": "cuda",
+      "precision": "fp16"
+    },
+    "class_type": "DownloadAndLoadSAM2Model",
+    "_meta": {
+      "title": "(Down)Load SAM2Model"
+    }
+  },
+  "1909": {
+    "inputs": {
+      "keep_model_loaded": true,
+      "individual_objects": true,
+      "sam2_model": [
+        "1908",
+        0
+      ],
+      "image": [
+        "1892",
+        0
+      ],
+      "bboxes": [
+        "1899",
+        1
+      ]
+    },
+    "class_type": "Sam2Segmentation",
+    "_meta": {
+      "title": "Sam2Segmentation"
+    }
+  },
+  "1911": {
+    "inputs": {
+      "upscale_model": "4x_NMKD-Siax_200k.pth",
+      "mode": "rescale",
+      "rescale_factor": [
+        "1915",
+        1
+      ],
+      "resize_width": 1024,
+      "resampling_method": "lanczos",
+      "supersample": "true",
+      "rounding_modulus": 8,
+      "image": [
+        "1867",
+        0
+      ]
+    },
+    "class_type": "CR Upscale Image",
+    "_meta": {
+      "title": "🔍 CR Upscale Image"
+    }
+  },
+  "1912": {
+    "inputs": {
+      "upscale_method": "lanczos",
+      "width": 1024,
+      "height": [
+        "1916",
+        0
+      ],
+      "crop": "center",
+      "image": [
+        "1911",
+        0
+      ]
+    },
+    "class_type": "ImageScale",
+    "_meta": {
+      "title": "Upscale Image"
+    }
+  },
+  "1913": {
+    "inputs": {
+      "image": [
+        "1911",
+        0
+      ]
+    },
+    "class_type": "LayerUtility: GetImageSize",
+    "_meta": {
+      "title": "LayerUtility: GetImageSize"
+    }
+  },
+  "1914": {
+    "inputs": {
+      "image": [
+        "1867",
+        0
+      ]
+    },
+    "class_type": "LayerUtility: GetImageSize",
+    "_meta": {
+      "title": "LayerUtility: GetImageSize"
+    }
+  },
+  "1915": {
+    "inputs": {
+      "value": "1024/a",
+      "a": [
+        "1914",
+        0
+      ]
+    },
+    "class_type": "SimpleMath+",
+    "_meta": {
+      "title": "🔧 Simple Math"
+    }
+  },
+  "1916": {
+    "inputs": {
+      "value": "b/(a/1024) - b/(a/1024)%8",
+      "a": [
+        "1913",
+        0
+      ],
+      "b": [
+        "1913",
+        1
+      ]
+    },
+    "class_type": "SimpleMath+",
+    "_meta": {
+      "title": "🔧 Simple Math"
+    }
+  },
+  "1918": {
+    "inputs": {
+      "inputcount": 2,
+      "Update inputs": null,
+      "image_1": [
+        "1880",
+        0
+      ],
+      "image_2": [
+        "1919",
+        0
+      ]
+    },
+    "class_type": "ImageBatchMulti",
+    "_meta": {
+      "title": "Image Batch Multi"
+    }
+  },
+  "1919": {
+    "inputs": {
+      "mask": [
+        "1884",
+        1
+      ]
+    },
+    "class_type": "MaskToImage",
+    "_meta": {
+      "title": "Convert Mask to Image"
+    }
+  },
+  "1921": {
+    "inputs": {
+      "width": 0,
+      "height": 0,
+      "upscale_method": "lanczos",
+      "keep_proportion": false,
+      "divisible_by": 8,
+      "crop": "disabled",
+      "image": [
+        "1878",
+        0
+      ]
+    },
+    "class_type": "ImageResizeKJ",
+    "_meta": {
+      "title": "Resize Image"
+    }
+  },
+  "1922": {
+    "inputs": {
+      "switch": [
+        "1877",
+        0
+      ],
+      "on_false": [
+        "1870",
+        0
+      ],
+      "on_true": [
+        "1864",
+        0
+      ]
+    },
+    "class_type": "InversionDemoLazySwitch",
+    "_meta": {
+      "title": "Lazy Switch"
+    }
+  },
+  "1925": {
+    "inputs": {
+      "x": 0,
+      "y": 0,
+      "resize_source": false,
+      "destination": [
+        "1576",
+        0
+      ],
+      "source": [
+        "1922",
+        0
+      ],
+      "mask": [
+        "586",
+        0
+      ]
+    },
+    "class_type": "ImageCompositeMasked",
+    "_meta": {
+      "title": "ImageCompositeMasked"
+    }
+  },
+  "1926": {
+    "inputs": {
+      "inputcount": 4,
+      "Update inputs": null,
+      "image_1": [
+        "1576",
+        0
+      ],
+      "image_2": [
+        "1925",
+        0
+      ],
+      "image_3": [
+        "1927",
+        0
+      ],
+      "image_4": [
+        "1045",
+        0
+      ]
+    },
+    "class_type": "ImageBatchMulti",
+    "_meta": {
+      "title": "Image Batch Multi"
+    }
+  },
+  "1927": {
+    "inputs": {
+      "mask": [
+        "586",
+        0
+      ]
+    },
+    "class_type": "MaskToImage",
+    "_meta": {
+      "title": "Convert Mask to Image"
+    }
+  },
+  "1929": {
+    "inputs": {
+      "base64_data": "iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAQAAADZc7J/AAAAH0lEQVR42mNkoBAwjhowasCoAaMGjBowasCoAcPNAACOMAAhOO/A7wAAAABJRU5ErkJggg==",
+      "image_output": "Hide",
+      "save_prefix": "ComfyUI"
+    },
+    "class_type": "easy loadImageBase64",
+    "_meta": {
+      "title": "Load Image (Base64) Model"
+    }
+  },
+  "1931": {
+    "inputs": {
+      "value": [
+        "1942",
+        0
+      ]
+    },
+    "class_type": "easy boolean",
+    "_meta": {
+      "title": "Boolean_FS"
+    }
+  },
+  "1938": {
+    "inputs": {
+      "switch": [
+        "1931",
+        0
+      ],
+      "on_false": [
+        "1953",
+        0
+      ],
+      "on_true": [
+        "1750",
+        1
+      ]
+    },
+    "class_type": "InversionDemoLazySwitch",
+    "_meta": {
+      "title": "Lazy Switch"
+    }
+  },
+  "1939": {
+    "inputs": {
+      "switch": [
+        "1931",
+        0
+      ],
+      "on_false": [
+        "1954",
+        0
+      ],
+      "on_true": [
+        "1750",
+        2
+      ]
+    },
+    "class_type": "InversionDemoLazySwitch",
+    "_meta": {
+      "title": "Lazy Switch"
+    }
+  },
+  "1940": {
+    "inputs": {
+      "switch": [
+        "1931",
+        0
+      ],
+      "on_false": [
+        "1966",
+        0
+      ],
+      "on_true": [
+        "1750",
+        0
+      ]
+    },
+    "class_type": "InversionDemoLazySwitch",
+    "_meta": {
+      "title": "Lazy Switch"
+    }
+  },
+  "1941": {
+    "inputs": {
+      "image": [
+        "1929",
+        0
+      ]
+    },
+    "class_type": "easy imageToBase64",
+    "_meta": {
+      "title": "Image To Base64"
+    }
+  },
+  "1942": {
+    "inputs": {
+      "comparison": "a != b",
+      "a": [
+        "1941",
+        0
+      ],
+      "b": [
+        "1943",
+        0
+      ]
+    },
+    "class_type": "easy compare",
+    "_meta": {
+      "title": "Compare"
+    }
+  },
+  "1943": {
+    "inputs": {
+      "value": "/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAgGBgcGBQgHBwcJCQgKDBQNDAsLDBkSEw8UHRofHh0aHBwgJC4nICIsIxwcKDcpLDAxNDQ0Hyc5PTgyPC4zNDL/2wBDAQkJCQwLDBgNDRgyIRwhMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjL/wAARCAAgACADASIAAhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSExBhJBUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6goOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3uLm6wsPExcbHyMnK0tPU1dbX2Nna4uPk5ebn6Onq8vP09fb3+Pn6/9oADAMBAAIRAxEAPwD5/ooooAKKKKACiiigAooooA//2Q=="
+    },
+    "class_type": "easy string",
+    "_meta": {
+      "title": "String"
+    }
+  },
+  "1948": {
+    "inputs": {
+      "switch": [
+        "1931",
+        0
+      ],
+      "on_false": [
+        "1965",
+        0
+      ],
+      "on_true": [
+        "1857",
+        0
+      ]
+    },
+    "class_type": "InversionDemoLazySwitch",
+    "_meta": {
+      "title": "Lazy Switch"
+    }
+  },
+  "1950": {
+    "inputs": {
+      "switch": [
+        "1931",
+        0
+      ],
+      "on_false": [
+        "1951",
+        0
+      ],
+      "on_true": [
+        "1604",
+        0
+      ]
+    },
+    "class_type": "InversionDemoLazySwitch",
+    "_meta": {
+      "title": "Lazy Switch"
+    }
+  },
+  "1951": {
+    "inputs": {
+      "value": 0.6
+    },
+    "class_type": "easy float",
+    "_meta": {
+      "title": "Float"
+    }
+  },
+  "1952": {
+    "inputs": {
+      "switch": [
+        "1931",
+        0
+      ],
+      "on_false": [
+        "1929",
+        0
+      ],
+      "on_true": [
+        "1929",
+        0
+      ]
+    },
+    "class_type": "InversionDemoLazySwitch",
+    "_meta": {
+      "title": "Lazy Switch"
+    }
+  },
+  "1953": {
+    "inputs": {
+      "text": [
+        "799",
+        0
+      ],
+      "clip": [
+        "1966",
+        1
+      ]
+    },
+    "class_type": "CLIPTextEncode",
+    "_meta": {
+      "title": "CLIP Text Encode (Prompt)"
+    }
+  },
+  "1954": {
+    "inputs": {
+      "text": [
+        "1955",
+        0
+      ],
+      "clip": [
+        "1966",
+        1
+      ]
+    },
+    "class_type": "CLIPTextEncode",
+    "_meta": {
+      "title": "CLIP Text Encode (Prompt)"
+    }
+  },
+  "1955": {
+    "inputs": {
+      "Text": "(CGI, Unreal, Airbrushed, Digital), (clothes, wearables, accessories:1.8), cropped background, bad hands, bokeh, nsfw, tattoo, text"
+    },
+    "class_type": "DF_Text_Box",
+    "_meta": {
+      "title": "Text Box"
+    }
+  },
+  "1956": {
+    "inputs": {
+      "Text": "38mm, Fujifilm XT3, (no clothing:1), skin textures, high resolution, bare skin"
+    },
+    "class_type": "DF_Text_Box",
+    "_meta": {
+      "title": "Text Box"
+    }
+  },
+  "1957": {
+    "inputs": {
+      "action": "append",
+      "tidy_tags": "yes",
+      "text_a": [
+        "648",
+        0
+      ],
+      "text_b": [
+        "1771",
+        0
+      ]
+    },
+    "class_type": "StringFunction|pysssss",
+    "_meta": {
+      "title": "String Function 🐍"
+    }
+  },
+  "1959": {
+    "inputs": {
+      "seed": [
+        "594",
+        0
+      ],
+      "steps": 20,
+      "cfg": 2,
+      "sampler_name": "dpmpp_3m_sde_gpu",
+      "scheduler": "karras",
+      "denoise": 0.25,
+      "model": [
+        "1636",
+        0
+      ],
+      "positive": [
+        "1964",
+        0
+      ],
+      "negative": [
+        "1964",
+        1
+      ],
+      "latent_image": [
+        "1964",
+        2
+      ]
+    },
+    "class_type": "KSampler",
+    "_meta": {
+      "title": "KSampler"
+    }
+  },
+  "1961": {
+    "inputs": {
+      "text": "cartoon, painting, illustration, (worst quality, low quality, normal quality:2)",
+      "clip": [
+        "1636",
+        1
+      ]
+    },
+    "class_type": "CLIPTextEncode",
+    "_meta": {
+      "title": "CLIP Text Encode (Prompt)"
+    }
+  },
+  "1962": {
+    "inputs": {
+      "text": "",
+      "clip": [
+        "1636",
+        1
+      ]
+    },
+    "class_type": "CLIPTextEncode",
+    "_meta": {
+      "title": "CLIP Text Encode (Prompt)"
+    }
+  },
+  "1964": {
+    "inputs": {
+      "noise_mask": true,
+      "positive": [
+        "1962",
+        0
+      ],
+      "negative": [
+        "1961",
         0
       ],
       "vae": [
-        "584",
+        "1636",
+        2
+      ],
+      "pixels": [
+        "604",
+        0
+      ],
+      "mask": [
+        "870",
+        0
+      ]
+    },
+    "class_type": "InpaintModelConditioning",
+    "_meta": {
+      "title": "InpaintModelConditioning"
+    }
+  },
+  "1965": {
+    "inputs": {
+      "samples": [
+        "1959",
+        0
+      ],
+      "vae": [
+        "1636",
         2
       ]
     },
     "class_type": "VAEDecode",
     "_meta": {
       "title": "VAE Decode"
+    }
+  },
+  "1966": {
+    "inputs": {
+      "lora_name": "SOAP.safetensors",
+      "strength_model": 0.5,
+      "strength_clip": 1,
+      "model": [
+        "584",
+        0
+      ],
+      "clip": [
+        "584",
+        1
+      ]
+    },
+    "class_type": "LoraLoader",
+    "_meta": {
+      "title": "Load LoRA"
     }
   }
 }

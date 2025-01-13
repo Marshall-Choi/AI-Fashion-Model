@@ -67,14 +67,10 @@ def validate_input(job_input):
             )
 
         loadimg_done = False
-        gamtimg_done = False
-        gmmkimg_done = False
+        modlimg_done = False
 
         loadimg_id = [key for key, value in id_to_class_type.items() if value == 'Load Image (Base64)']
-        
-        gamtimg_id = [key for key, value in id_to_class_type.items() if value == 'Load Image (Base64) Garment']
-
-        gmmkimg_id = [key for key, value in id_to_class_type.items() if value == 'Load Image (Base64) Garment Mask']
+        modlimg_id = [key for key, value in id_to_class_type.items() if value == 'Load Image (Base64) Model']
 
         for image_url in images:
             if image_url.startswith("http://") or image_url.startswith("https://"):
@@ -86,17 +82,50 @@ def validate_input(job_input):
                 img = image_url.split(",")[1]
 
             if loadimg_id and not loadimg_done:
+                print("img input!:", f'{loadimg_id[0]}')
                 workflow.get(f'{loadimg_id[0]}').get('inputs')['base64_data'] = img
                 loadimg_done = True
                 continue
 
-            if gamtimg_id and not gamtimg_done:
-                workflow.get(f'{gamtimg_id[0]}').get('inputs')['base64_data'] = img
-                gamtimg_done = True
+            if modlimg_id and not modlimg_done:
+                print("model img input!:", f'{modlimg_id[0]}')
+                workflow.get(f'{modlimg_id[0]}').get('inputs')['base64_data'] = img
+                modlimg_done = True
+                continue
+
+    # Validate 'image masks' in input, if provided
+    image_masks = job_input.get("image_mask_urls")
+    id_to_class_type = {id: details.get('_meta').get('title') for id, details in workflow.items()}
+    if image_masks is not None:
+        if not isinstance(image_masks, list):
+            return (
+                None, "'image_mask_urls' must be a list of image_mask_urls",
+            )
+
+        rmbg_mask_img_done = False
+        gmmkimg_done = False
+
+        rmbg_mask_img_id = [key for key, value in id_to_class_type.items() if value == 'Load Image (Base64) RMBG Mask']
+        gmmkimg_id = [key for key, value in id_to_class_type.items() if value == 'Load Image (Base64) Garment Mask']
+
+        for image_mask_url in image_masks:
+            if image_mask_url.startswith("http://") or image_mask_url.startswith("https://"):
+                response = requests.get(image_mask_url, timeout=5)
+                if response.status_code != 200:
+                    return None, f"Url server's status_code is not 200: {image_mask_url}"
+                img_mask = base64.b64encode(response.content).decode("utf-8")
+            elif image_mask_url.startswith("data:image/"):
+                img_mask = image_mask_url.split(",")[1]
+
+            if rmbg_mask_img_id and not rmbg_mask_img_done:
+                print("rmbg mask img input!:", f'{rmbg_mask_img_id[0]}')
+                workflow.get(f'{rmbg_mask_img_id[0]}').get('inputs')['base64_data'] = img_mask
+                rmbg_mask_img_done = True
                 continue
 
             if gmmkimg_id and not gmmkimg_done:
-                workflow.get(f'{gmmkimg_id[0]}').get('inputs')['base64_data'] = img
+                print("garment mask img input!:", f'{gmmkimg_id[0]}')
+                workflow.get(f'{gmmkimg_id[0]}').get('inputs')['base64_data'] = img_mask
                 gmmkimg_done = True
                 continue
 
@@ -114,14 +143,7 @@ def validate_input(job_input):
         selected_workflow_id = [key for key, value in id_to_class_type.items() if value == 'Selected_Workflow']
         if selected_workflow_id:
             workflow.get(f'{selected_workflow_id[0]}').get('inputs')['value'] = workflow_number
-            print("Got the selected_workflow!: ", workflow.get(f'{selected_workflow_id[0]}').get('inputs')['value'])
-            
-    prompt = job_input.get('prompt')
-    if prompt is not None:
-        prompt_id = [key for key, value in id_to_class_type.items() if value == 'Background Prompt']
-        if prompt_id:
-            workflow.get(f'{prompt_id[0]}').get('inputs')['Text'] = prompt
-            print("Got the prompt!: ", workflow.get(f'{prompt_id[0]}').get('inputs')['Text'])
+            print("Got selected_workflow!: ", workflow.get(f'{selected_workflow_id[0]}').get('inputs')['value'])
 
     restoration_choice = job_input.get('restoration_choices')
     global output_name_select
@@ -132,6 +154,7 @@ def validate_input(job_input):
     else:
         output_name_select = None
     
+    """
     lora_setting = job_input.get('lora_setting')
     if lora_setting is not None:
         lora_id = [key for key, value in id_to_class_type.items() if value == 'Load LoRA'][0]
@@ -141,25 +164,45 @@ def validate_input(job_input):
             workflow.get(lora_id).get('inputs')['strength_model'] = lora_setting.get('strength')
         else :
             workflow.get(lora_id).get('inputs')['strength_model'] = 0
-            workflow.get(choice_id).get('inputs')['strength_clip'] = 0
-    
+            workflow.get(lora_id).get('inputs')['strength_clip'] = 0
+    """
+
     clip_skip = job_input.get('clip_skip')
     if clip_skip is not None:
         clip_id = [key for key, value in id_to_class_type.items() if value == 'CLIP Set Last Layer'][0]
         workflow.get(lora_id).get('inputs')['stop_at_clip_layer'] = -2 if clip_skip else -1
 
     model_prompt = job_input.get('model_prompt')
-    if model_prompt is not None:
+    if model_prompt != "":
         model_prompt_id = [key for key, value in id_to_class_type.items() if value == 'Model Prompt']
         if model_prompt_id:
             workflow.get(f'{model_prompt_id[0]}').get('inputs')['Text'] = model_prompt
-            print("Got the prompt!: ", workflow.get(f'{model_prompt_id[0]}').get('inputs')['Text'])
+            print("Got model prompt!: ", workflow.get(f'{model_prompt_id[0]}').get('inputs')['Text'])
+
+    bg_prompt = job_input.get('bg_prompt')
+    if bg_prompt is not None:
+        prompt_id = [key for key, value in id_to_class_type.items() if value == 'Background Prompt']
+        if prompt_id:
+            workflow.get(f'{prompt_id[0]}').get('inputs')['Text'] = bg_prompt
+            print("Got BG prompt!: ", workflow.get(f'{prompt_id[0]}').get('inputs')['Text'])
 
     use_fd = job_input.get('use_fd')
     if use_fd is not None:
         use_fd_id = [key for key, value in id_to_class_type.items() if value == 'Boolean_FD']
         if use_fd_id:
             workflow.get(f'{use_fd_id[0]}').get('inputs')['value'] = use_fd
+
+    use_hd = job_input.get('use_hd')
+    if use_hd is not None:
+        use_hd_id = [key for key, value in id_to_class_type.items() if value == 'Boolean_HD']
+        if use_hd_id:
+            workflow.get(f'{use_hd_id[0]}').get('inputs')['value'] = use_hd
+
+    use_us = job_input.get('use_us')
+    if use_us is not None:
+        use_us_id = [key for key, value in id_to_class_type.items() if value == 'Boolean_US']
+        if use_us_id:
+            workflow.get(f'{use_us_id[0]}').get('inputs')['value'] = use_us
 
     use_automask = job_input.get('use_automask')
     if use_automask is not None:

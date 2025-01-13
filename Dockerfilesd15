@@ -1,5 +1,5 @@
 # Use Nvidia CUDA base image
-FROM nvidia/cuda:12.4.1-cudnn-runtime-ubuntu22.04 AS base
+FROM nvidia/cuda:12.1.0-cudnn8-runtime-ubuntu22.04 AS base
 
 # Prevents prompts from packages asking for user input during installation
 ENV DEBIAN_FRONTEND=noninteractive
@@ -15,18 +15,7 @@ RUN apt-get update && apt-get install -y \
     git \
     wget \
     libgl1-mesa-glx \
-    libglib2.0-0 \
-    libegl1-mesa \
-    libgles2-mesa \
-    libegl1-mesa-dev \
-    libgles2-mesa-dev \
-    libgl1-mesa-dev \
-    libx11-dev \
-    xvfb libxext-dev
-
-# Install mediapipe
-    
-RUN pip3 install --no-cache-dir mediapipe
+    libglib2.0-0 
 
 # Install git-lfs for installing large files
 RUN apt-get install -y git-lfs
@@ -41,57 +30,40 @@ RUN git clone https://github.com/comfyanonymous/ComfyUI.git /comfyui
 # Change working directory to ComfyUI
 WORKDIR /comfyui
 
-# Install ComfyUI dependencies with CUDA 12.4 support
-RUN pip3 install --no-cache-dir torch==2.5.1+cu124 torchvision==0.20.1+cu124 xformers==0.0.29 --extra-index-url https://download.pytorch.org/whl/cu124 \
+# Install ComfyUI dependencies with CUDA 12.1 support
+RUN pip3 install --no-cache-dir torch==2.4.1+cu121 torchvision==0.19.1+cu121 torchaudio==2.4.1+cu121 xformers==0.0.28 --extra-index-url https://download.pytorch.org/whl/cu121 \
     && pip3 install -r requirements.txt
 
-RUN apt-get update && apt-get install -y curl && apt-get clean
-
 # Download models
-
-# Checkpoints
 RUN wget -O models/checkpoints/epicphotogasm.safetensors https://civitai.com/api/download/models/429454
-RUN curl -L \
--H "Content-Type: application/json" \
--H "Authorization: Bearer a0e42c3983bc134833695ad26affbe6d" \
-"https://civitai.com/api/download/models/920957" --output models/checkpoints/JuggernautXL.safetensors
+RUN wget -O models/checkpoints/epicrealismxlVXI.safetensors https://civitai.com/api/download/models/1156226
 
-# LoRAs
-RUN wget -O models/loras/SOAP.safetensors https://civitai.com/api/download/models/144929
+RUN wget -O models/loras/add_detail.safetensors https://civitai.com/api/download/models/62833
+RUN wget -O models/loras/epicRealismHelper.safetensors https://civitai.com/api/download/models/118945
 
-# SDXL controlnet
-RUN mkdir -p models/controlnet/ \
-    && wget -O models/controlnet/controlnet-union-sdxl-1.0.promax.safetensors https://huggingface.co/xinsir/controlnet-union-sdxl-1.0/resolve/main/diffusion_pytorch_model_promax.safetensors 
+RUN wget -O models/controlnet/controlnet++_canny_sd15_fp16.safetensors https://huggingface.co/huchenlei/ControlNet_plus_plus_collection_fp16/resolve/main/controlnet%2B%2B_canny_sd15_fp16.safetensors && \
+    wget -O models/controlnet/controlnet++_depth_sd15_fp16.safetensors https://huggingface.co/huchenlei/ControlNet_plus_plus_collection_fp16/resolve/main/controlnet%2B%2B_depth_sd15_fp16.safetensors && \
+    wget -O models/controlnet/control_v11p_sd15_openpose_fp16.safetensors https://huggingface.co/comfyanonymous/ControlNet-v1-1_fp16_safetensors/resolve/main/control_v11p_sd15_openpose_fp16.safetensors && \
+    wget -O models/controlnet/control_v11p_sd15_inpaint_fp16.safetensors https://huggingface.co/comfyanonymous/ControlNet-v1-1_fp16_safetensors/resolve/main/control_v11p_sd15_inpaint_fp16.safetensors && \
+    wget -O models/controlnet/control_sd15_inpaint_depth_hand_fp16.safetensors https://huggingface.co/hr16/ControlNet-HandRefiner-pruned/resolve/main/control_sd15_inpaint_depth_hand_fp16.safetensors
 
-# SDXL EcomID
-RUN mkdir -p models/pulid/ \
-    && wget -O models/pulid/ip-adapter_pulid_sdxl_fp16.safetensors https://huggingface.co/huchenlei/ipadapter_pulid/resolve/main/ip-adapter_pulid_sdxl_fp16.safetensors 
+RUN mkdir -p models/ella/
+RUN mkdir -p models/ella_encoder/models--google--flan-t5-xl--text_encoder/
 
-RUN mkdir -p models/insightface/ \
-    && mkdir -p models/insightface/models/ \
-    && mkdir -p models/insightface/models/antelopev2/ \
-    && wget -O models/insightface/models/antelopev2/1k3d68.onnx https://huggingface.co/MonsterMMORPG/tools/resolve/main/1k3d68.onnx \
-    && wget -O models/insightface/models/antelopev2/2d106det.onnx https://huggingface.co/MonsterMMORPG/tools/resolve/main/2d106det.onnx \
-    && wget -O models/insightface/models/antelopev2/genderage.onnx https://huggingface.co/MonsterMMORPG/tools/resolve/main/genderage.onnx \
-    && wget -O models/insightface/models/antelopev2/glintr100.onnx https://huggingface.co/MonsterMMORPG/tools/resolve/main/glintr100.onnx \
-    && wget -O models/insightface/models/antelopev2/scrfd_10g_bnkps.onnx https://huggingface.co/MonsterMMORPG/tools/resolve/main/scrfd_10g_bnkps.onnx \
-    && wget -O models/insightface/inswapper_128.onnx https://huggingface.co/datasets/Gourieff/ReActor/resolve/main/models/inswapper_128.onnx
+RUN wget -O models/ella/ella-sd1.5-tsc-t5xl.safetensors https://huggingface.co/QQGYLab/ELLA/resolve/main/ella-sd1.5-tsc-t5xl.safetensors
 
-RUN mkdir -p models/instantid/ \
-    && wget -O models/instantid/ip-adapter.bin https://huggingface.co/InstantX/InstantID/resolve/main/ip-adapter.bin
-
-RUN wget -O models/controlnet/controlnet_ecomid_sdxl.safetensors https://huggingface.co/alimama-creative/SDXL-EcomID/resolve/main/diffusion_pytorch_model.safetensors
-
-# ReActor
-RUN mkdir -p models/facerestore_models/ \
-    && wget -O models/facerestore_models/GPEN-BFR-1024.onnx https://huggingface.co/datasets/Gourieff/ReActor/resolve/main/models/facerestore_models/GPEN-BFR-1024.onnx
-
-# SD 1.5 controlnet
-RUN wget -O models/controlnet/control_sd15_inpaint_depth_hand_fp16.safetensors https://huggingface.co/hr16/ControlNet-HandRefiner-pruned/resolve/main/control_sd15_inpaint_depth_hand_fp16.safetensors
+RUN wget -O models/ella_encoder/models--google--flan-t5-xl--text_encoder/config.json https://huggingface.co/QQGYLab/ELLA/resolve/main/models--google--flan-t5-xl--text_encoder/config.json
+RUN wget -O models/ella_encoder/models--google--flan-t5-xl--text_encoder/model.safetensors https://huggingface.co/QQGYLab/ELLA/resolve/main/models--google--flan-t5-xl--text_encoder/model.safetensors
+RUN wget -O models/ella_encoder/models--google--flan-t5-xl--text_encoder/special_tokens_map.json https://huggingface.co/QQGYLab/ELLA/resolve/main/models--google--flan-t5-xl--text_encoder/special_tokens_map.json
+RUN wget -O models/ella_encoder/models--google--flan-t5-xl--text_encoder/spiece.model https://huggingface.co/QQGYLab/ELLA/resolve/main/models--google--flan-t5-xl--text_encoder/spiece.model
+RUN wget -O models/ella_encoder/models--google--flan-t5-xl--text_encoder/tokenizer.json https://huggingface.co/QQGYLab/ELLA/resolve/main/models--google--flan-t5-xl--text_encoder/tokenizer.json
+RUN wget -O models/ella_encoder/models--google--flan-t5-xl--text_encoder/tokenizer_config.json https://huggingface.co/QQGYLab/ELLA/resolve/main/models--google--flan-t5-xl--text_encoder/tokenizer_config.json
 
 RUN mkdir -p models/ipadapter/
 
 RUN wget -O models/upscale_models/4x_NMKD-Siax_200k.pth https://huggingface.co/gemasai/4x_NMKD-Siax_200k/resolve/main/4x_NMKD-Siax_200k.pth
+
+RUN wget -O models/vae/vae-ft-mse-840000-ema-pruned.safetensors https://huggingface.co/stabilityai/sd-vae-ft-mse-original/resolve/main/vae-ft-mse-840000-ema-pruned.safetensors
 
 RUN mkdir -p models/BiRefNet/
 RUN wget -O models/BiRefNet/swin_large_patch4_window12_384_22kto1k.pth https://huggingface.co/ViperYX/BiRefNet/resolve/main/swin_large_patch4_window12_384_22kto1k.pth
@@ -102,7 +74,7 @@ RUN wget -O models/BiRefNet/pth/BiRefNet-general-epoch_244.pth https://github.co
 RUN mkdir -p models/vitmatte/
 RUN wget -O models/vitmatte/config.json https://huggingface.co/hustvl/vitmatte-small-composition-1k/resolve/main/config.json
 RUN wget -O models/vitmatte/preprocessor_config.json https://huggingface.co/hustvl/vitmatte-small-composition-1k/resolve/main/preprocessor_config.json
-RUN wget -O models/vitmatte/model.safetensors https://huggingface.co/hustvl/vitmatte-small-composition-1k/resolve/main/model.safetensors
+RUN wget -O models/vitmatte/pytorch_model.bin https://huggingface.co/hustvl/vitmatte-small-composition-1k/resolve/main/pytorch_model.bin
 
 RUN mkdir -p models/segformer_b3_fashion
 RUN git clone https://huggingface.co/sayeed99/segformer-b3-fashion models/segformer_b3_fashion
@@ -117,23 +89,13 @@ RUN wget -O models/depthanything/depth_anything_v2_vitl_fp16.safetensors https:/
 RUN mkdir -p models/sam2/ \
     && wget -O models/sam2/sam2_hiera_large.safetensors https://huggingface.co/Kijai/sam2-safetensors/resolve/main/sam2_hiera_large.safetensors
 
-RUN mkdir -p models/ultralytics/ && mkdir -p models/ultralytics/bbox/ \
-    && wget -O models/ultralytics/bbox/face_yolov8m.pt https://huggingface.co/datasets/Gourieff/ReActor/resolve/main/models/detection/bbox/face_yolov8m.pt \
-    && wget -O models/ultralytics/bbox/hand_yolov8s.pt https://huggingface.co/xingren23/comfyflow-models/resolve/976de8449674de379b02c144d0b3cfa2b61482f2/ultralytics/bbox/hand_yolov8s.pt
-
-RUN pip install facexlib
-RUN wget -q https://github.com/xinntao/facexlib/releases/download/v0.1.0/detection_Resnet50_Final.pth -O /usr/local/lib/python3.10/dist-packages/facexlib/weights/detection_Resnet50_Final.pth
-RUN wget -q https://github.com/xinntao/facexlib/releases/download/v0.2.2/parsing_parsenet.pth -O /usr/local/lib/python3.10/dist-packages/facexlib/weights/parsing_parsenet.pth
-RUN wget -q https://github.com/xinntao/facexlib/releases/download/v0.2.0/parsing_bisenet.pth -O /usr/local/lib/python3.10/dist-packages/facexlib/weights/parsing_bisenet.pth
-
-RUN mkdir -p models/insightface/models/buffalo_l/ \
-    && wget -O models/insightface/models/buffalo_l/1k3d68.onnx https://huggingface.co/public-data/insightface/resolve/main/models/buffalo_l/1k3d68.onnx \
-    && wget -O models/insightface/models/buffalo_l/2d106det.onnx https://huggingface.co/public-data/insightface/resolve/main/models/buffalo_l/2d106det.onnx \
-    && wget -O models/insightface/models/buffalo_l/det_10g.onnx https://huggingface.co/public-data/insightface/resolve/main/models/buffalo_l/det_10g.onnx \
-    && wget -O models/insightface/models/buffalo_l/genderage.onnx https://huggingface.co/public-data/insightface/resolve/main/models/buffalo_l/genderage.onnx \
-    && wget -O models/insightface/models/buffalo_l/w600k_r50.onnx https://huggingface.co/public-data/insightface/resolve/main/models/buffalo_l/w600k_r50.onnx 
+RUN mkdir -p models/ultralytics/ && mkdir -p models/ultralytics/segm/ \
+    && wget -O models/ultralytics/segm/face_yolov8m-seg_60.pt https://huggingface.co/datasets/Gourieff/ReActor/resolve/main/models/detection/segm/face_yolov8m-seg_60.pt \
+    && wget -O models/ultralytics/segm/hair_yolov8n-seg_60.pt https://huggingface.co/datasets/Gourieff/ReActor/resolve/main/models/detection/segm/hair_yolov8n-seg_60.pt
 
 # Download Custom node
+RUN git clone https://github.com/TencentQQGYLab/ComfyUI-ELLA.git custom_nodes/ComfyUI-ELLA
+
 RUN git clone https://github.com/Extraltodeus/Stable-Diffusion-temperature-settings.git custom_nodes/Stable-Diffusion-temperature-settings
 
 RUN git clone https://github.com/kijai/ComfyUI-IC-Light.git custom_nodes/ComfyUI-IC-Light
@@ -166,11 +128,10 @@ RUN git clone https://github.com/Fannovel16/comfyui_controlnet_aux custom_nodes/
     && wget -O custom_nodes/comfyui_controlnet_aux/ckpts/lllyasviel/Annotators/body_pose_model.pth https://huggingface.co/lllyasviel/Annotators/resolve/main/body_pose_model.pth \
     && wget -O custom_nodes/comfyui_controlnet_aux/ckpts/lllyasviel/Annotators/hand_pose_model.pth https://huggingface.co/lllyasviel/Annotators/resolve/main/hand_pose_model.pth \
     && mkdir -p custom_nodes/comfyui_controlnet_aux/ckpts/hr16 \
-    && mkdir -p custom_nodes/comfyui_controlnet_aux/ckpts/hr16/yolo-nas-fp16 \
-    && mkdir -p custom_nodes/comfyui_controlnet_aux/ckpts/yzd-v \
-    && mkdir -p custom_nodes/comfyui_controlnet_aux/ckpts/yzd-v/DWPose \
-    && wget -O custom_nodes/comfyui_controlnet_aux/ckpts/hr16/yolo-nas-fp16/yolo_nas_l_fp16.onnx https://huggingface.co/hr16/yolo-nas-fp16/resolve/main/yolo_nas_l_fp16.onnx \
-    && wget -O custom_nodes/comfyui_controlnet_aux/ckpts/yzd-v/DWPose/dw-ll_ucoco_384.onnx https://huggingface.co/yzd-v/DWPose/resolve/main/dw-ll_ucoco_384.onnx \
+    && mkdir -p custom_nodes/comfyui_controlnet_aux/ckpts/hr16/yolox-onnx \
+    && wget -O custom_nodes/comfyui_controlnet_aux/ckpts/hr16/yolox-onnx/yolox_l.torchscript.pt https://huggingface.co/hr16/yolox-onnx/resolve/main/yolox_l.torchscript.pt \
+    && mkdir -p custom_nodes/comfyui_controlnet_aux/ckpts/hr16/DWPose-TorchScript-BatchSize5 \
+    && wget -O custom_nodes/comfyui_controlnet_aux/ckpts/hr16/DWPose-TorchScript-BatchSize5/dw-ll_ucoco_384_bs5.torchscript.pt https://huggingface.co/hr16/DWPose-TorchScript-BatchSize5/resolve/main/dw-ll_ucoco_384_bs5.torchscript.pt \
     && mkdir -p custom_nodes/comfyui_controlnet_aux/ckpts/hr16/ControlNet-HandRefiner-pruned \
     && wget -O custom_nodes/comfyui_controlnet_aux/ckpts/hr16/ControlNet-HandRefiner-pruned/graphormer_hand_state_dict.bin https://huggingface.co/hr16/ControlNet-HandRefiner-pruned/resolve/main/graphormer_hand_state_dict.bin \
     && wget -O custom_nodes/comfyui_controlnet_aux/ckpts/hr16/ControlNet-HandRefiner-pruned/hrnetv2_w64_imagenet_pretrained.pth https://huggingface.co/hr16/ControlNet-HandRefiner-pruned/resolve/main/hrnetv2_w64_imagenet_pretrained.pth 
@@ -195,27 +156,15 @@ RUN git clone https://github.com/ltdrdata/ComfyUI-Inspire-Pack.git custom_nodes/
 
 RUN git clone https://github.com/BadCafeCode/execution-inversion-demo-comfyui.git custom_nodes/execution-inversion-demo-comfyui
 
-RUN git clone https://github.com/chflame163/ComfyUI_LayerStyle.git custom_nodes/ComfyUI_LayerStyle 
+RUN git clone https://github.com/pioncmr/ComfyUI_LayerStyle.git custom_nodes/ComfyUI_LayerStyle 
 
-RUN git clone https://github.com/chflame163/ComfyUI_LayerStyle_Advance.git custom_nodes/ComfyUI_LayerStyle_Advance \
-    && cd custom_nodes/ComfyUI_LayerStyle_Advance \
-    && git checkout 1b52c5d89bb4bee0969fc9aca615afcf9c283f4a
 RUN git clone https://github.com/Suzie1/ComfyUI_Comfyroll_CustomNodes.git custom_nodes/ComfyUI_Comfyroll_CustomNodes
-
-RUN git clone https://github.com/alimama-creative/SDXL_EcomID_ComfyUI.git custom_nodes/SDXL_EcomID_ComfyUI
-
-RUN git clone https://github.com/Kosinkadink/ComfyUI-Advanced-ControlNet.git custom_nodes/ComfyUI-Advanced-ControlNet
-
-RUN git clone https://github.com/ltdrdata/ComfyUI-Impact-Subpack.git custom_nodes/ComfyUI-Impact-Subpack \
-    && cd custom_nodes/ComfyUI-Impact-Subpack \
-    && git checkout 8628fa3a8abf168326afc0ade9666802ca3a0e86
 
 # Install ComfyUI dependencies
 
-RUN pip3 install -r custom_nodes/ComfyUI_LayerStyle/requirements.txt \
-    && pip3 install -r custom_nodes/ComfyUI_LayerStyle_Advance/requirements.txt
+RUN pip3 install -r custom_nodes/ComfyUI_LayerStyle/requirements.txt
 
-RUN pip3 install -r custom_nodes/SDXL_EcomID_ComfyUI/requirements.txt \
+RUN pip3 install -r custom_nodes/ComfyUI-ELLA/requirements.txt \
     && pip3 install -r custom_nodes/ComfyUI-Image-Filters/requirements.txt \
     && pip3 install -r custom_nodes/ComfyUI-IC-Light/requirements.txt \
     && pip3 install -r custom_nodes/ComfyUI-Easy-Use/requirements.txt \
@@ -226,7 +175,6 @@ RUN pip3 install -r custom_nodes/SDXL_EcomID_ComfyUI/requirements.txt \
     && pip3 install -r custom_nodes/ComfyUI-Florence2/requirements.txt \
     && pip3 install -r custom_nodes/ComfyUI-segment-anything-2/requirements.txt \
     && pip3 install -r custom_nodes/ComfyUI-Impact-Pack/requirements.txt \
-    && pip3 install -r custom_nodes/ComfyUI-Impact-Subpack/requirements.txt \
     && pip3 install -r custom_nodes/ComfyUI-Inspire-Pack/requirements.txt \
     && pip3 install -r custom_nodes/comfyui_controlnet_aux/requirements.txt
 
@@ -241,9 +189,6 @@ RUN pip3 uninstall -y opencv-python opencv-python-headless opencv-contrib-python
 
 RUN pip3 install pilgram
 RUN pip3 cache purge
-
-# Clean up output directory
-RUN rm -f output/*.png
 
 # Support for the network volume
 COPY src/extra_model_paths.yaml ./
