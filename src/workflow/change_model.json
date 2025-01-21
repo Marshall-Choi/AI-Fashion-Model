@@ -306,10 +306,10 @@
       "detect_hand": "enable",
       "detect_body": "enable",
       "detect_face": "enable",
-      "resolution": 512,
+      "resolution": 1024,
       "bbox_detector": "yolo_nas_l_fp16.onnx",
       "pose_estimator": "dw-ll_ucoco_384.onnx",
-      "scale_stick_for_xinsr_cn": "disable",
+      "scale_stick_for_xinsr_cn": "enable",
       "image": [
         "1922",
         0
@@ -361,7 +361,7 @@
         0
       ],
       "find2": "diagonal",
-      "replace2": "0.2",
+      "replace2": "0.5",
       "find3": "high",
       "replace3": "0.75"
     },
@@ -938,7 +938,7 @@
         0
       ],
       "mask2": [
-        "1694",
+        "1783",
         0
       ]
     },
@@ -1051,23 +1051,6 @@
         0
       ],
       "prev_plus_input": [
-        "1533",
-        0
-      ]
-    },
-    "class_type": "ACN_ControlNet++InputNode",
-    "_meta": {
-      "title": "ControlNet++ Input 🛂🅐🅒🅝"
-    }
-  },
-  "1533": {
-    "inputs": {
-      "control_type": "openpose",
-      "image": [
-        "1045",
-        0
-      ],
-      "prev_plus_input": [
         "1543",
         0
       ]
@@ -1101,8 +1084,8 @@
         1
       ],
       "latent_image": [
-        "1624",
-        2
+        "1972",
+        0
       ]
     },
     "class_type": "KSampler",
@@ -1618,12 +1601,12 @@
       "start_percent": 0,
       "end_percent": 1,
       "positive": [
-        "1938",
+        "1967",
         0
       ],
       "negative": [
-        "1939",
-        0
+        "1967",
+        1
       ],
       "control_net": [
         "1526",
@@ -3286,6 +3269,129 @@
     "class_type": "LoraLoader",
     "_meta": {
       "title": "Load LoRA"
+    }
+  },
+  "1967": {
+    "inputs": {
+      "strength": 0.6,
+      "start_percent": 0,
+      "end_percent": 1,
+      "positive": [
+        "1938",
+        0
+      ],
+      "negative": [
+        "1939",
+        0
+      ],
+      "control_net": [
+        "1968",
+        0
+      ],
+      "image": [
+        "1969",
+        0
+      ]
+    },
+    "class_type": "ControlNetApplyAdvanced",
+    "_meta": {
+      "title": "Apply ControlNet"
+    }
+  },
+  "1968": {
+    "inputs": {
+      "control_net_name": "OpenPoseXL2.safetensors"
+    },
+    "class_type": "ControlNetLoader",
+    "_meta": {
+      "title": "Load ControlNet Model"
+    }
+  },
+  "1969": {
+    "inputs": {
+      "red": "blue",
+      "green": "green",
+      "blue": "red",
+      "alpha": "none",
+      "image": [
+        "1045",
+        0
+      ]
+    },
+    "class_type": "ShuffleChannels",
+    "_meta": {
+      "title": "Shuffle Channels"
+    }
+  },
+  "1971": {
+    "inputs": {
+      "input_mode": "linear",
+      "output_mode": "sRGB",
+      "tonemap_scale": 1,
+      "images": [
+        "1922",
+        0
+      ]
+    },
+    "class_type": "Tonemap",
+    "_meta": {
+      "title": "Tonemap"
+    }
+  },
+  "1972": {
+    "inputs": {
+      "blend_factor": 0,
+      "samples1": [
+        "1624",
+        2
+      ],
+      "samples2": [
+        "1973",
+        0
+      ]
+    },
+    "class_type": "LatentBlend",
+    "_meta": {
+      "title": "Latent Blend"
+    }
+  },
+  "1973": {
+    "inputs": {
+      "x": 0,
+      "y": 0,
+      "resize_source": false,
+      "destination": [
+        "1974",
+        0
+      ],
+      "source": [
+        "1624",
+        2
+      ],
+      "mask": [
+        "586",
+        0
+      ]
+    },
+    "class_type": "LatentCompositeMasked",
+    "_meta": {
+      "title": "LatentCompositeMasked"
+    }
+  },
+  "1974": {
+    "inputs": {
+      "pixels": [
+        "1971",
+        0
+      ],
+      "vae": [
+        "584",
+        2
+      ]
+    },
+    "class_type": "VAEEncode",
+    "_meta": {
+      "title": "VAE Encode"
     }
   }
 }

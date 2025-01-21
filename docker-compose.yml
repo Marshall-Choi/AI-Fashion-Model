@@ -2,7 +2,7 @@ version: "3.8"
 
 services:
   comfyui:
-    image: pionai/runpod-worker-comfy-m2m:0109
+    image: pionai/runpod-worker-comfy-m2m:0120
     container_name: comfyui-worker
     runtime: nvidia 
     environment:

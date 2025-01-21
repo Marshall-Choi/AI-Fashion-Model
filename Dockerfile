@@ -61,7 +61,8 @@ RUN wget -O models/loras/SOAP.safetensors https://civitai.com/api/download/model
 
 # SDXL controlnet
 RUN mkdir -p models/controlnet/ \
-    && wget -O models/controlnet/controlnet-union-sdxl-1.0.promax.safetensors https://huggingface.co/xinsir/controlnet-union-sdxl-1.0/resolve/main/diffusion_pytorch_model_promax.safetensors 
+    && wget -O models/controlnet/controlnet-union-sdxl-1.0.promax.safetensors https://huggingface.co/xinsir/controlnet-union-sdxl-1.0/resolve/main/diffusion_pytorch_model_promax.safetensors \
+    && wget -O models/controlnet/OpenPoseXL2.safetensors https://huggingface.co/thibaud/controlnet-openpose-sdxl-1.0/resolve/main/OpenPoseXL2.safetensors
 
 # SDXL EcomID
 RUN mkdir -p models/pulid/ \
@@ -181,7 +182,7 @@ RUN git clone https://github.com/WASasquatch/WAS_Extras.git custom_nodes/WAS_Ext
 
 RUN git clone https://github.com/cubiq/ComfyUI_IPAdapter_plus.git custom_nodes/ComfyUI_IPAdapter_plus
 
-RUN git clone https://github.com/Gourieff/comfyui-reactor-node.git custom_nodes/comfyui-reactor-node
+RUN git clone https://github.com/Navezjt/comfyui-reactor-node.git custom_nodes/comfyui-reactor-node
 
 RUN git clone https://github.com/Acly/comfyui-tooling-nodes.git custom_nodes/comfyui-tooling-nodes
 
@@ -244,7 +245,11 @@ RUN pip3 cache purge
 
 # Clean up output directory
 RUN rm -f output/*.png
-
+RUN mkdir models/nsfw_detector \
+    && mkdir models/nsfw_detector/vit-base-nsfw-detector \
+    && wget -O models/nsfw_detector/vit-base-nsfw-detector/config.json https://huggingface.co/AdamCodd/vit-base-nsfw-detector/resolve/main/config.json \
+    && wget -O models/nsfw_detector/vit-base-nsfw-detector/model.safetensors https://huggingface.co/AdamCodd/vit-base-nsfw-detector/resolve/main/model.safetensors \
+    && wget -O models/nsfw_detector/vit-base-nsfw-detector/preprocessor_config.json https://huggingface.co/AdamCodd/vit-base-nsfw-detector/resolve/main/preprocessor_config.json
 # Support for the network volume
 COPY src/extra_model_paths.yaml ./
 
