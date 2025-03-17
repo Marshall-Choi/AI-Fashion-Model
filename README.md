@@ -17,7 +17,9 @@ AI Fashion Model은 Stable Diffusion을 활용하여 가상 패션 모델과 배
 ```bash
 git clone https://github.com/Marshall-Choi/AI-Fashion-Model.git
 docker build -t image_name:tag .
+```
 
 ## 🛠️🔍 로컬 테스트
 ```bash
 docker-compose up
+```
