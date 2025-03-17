@@ -11,7 +11,7 @@ AI Fashion Model은 Stable Diffusion을 활용하여 가상 패션 모델과 배
 - 프롬프팅으로 원하는 인종, 성별, 헤어스타일, 배경 선택 가능
 
 ## 📸 데모
-![Demo Image](https://via.placeholder.com/800x400.png?text=AI+Fashion+Model+Demo)
+<img width="934" alt="스크린샷 2025-03-16 오후 10 39 59" src="https://github.com/user-attachments/assets/9f6fee82-a073-441d-b084-fbc17493e18e" />
 
 ## 🛠️ 설치 방법
 ```bash
