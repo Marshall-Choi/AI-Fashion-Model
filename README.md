@@ -22,4 +22,5 @@ docker build -t image_name:tag .
 ## 🛠️🔍 로컬 테스트
 ```bash
 docker-compose up
+python gcp_runpod_test.py
 ```
